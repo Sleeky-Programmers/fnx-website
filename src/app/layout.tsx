@@ -51,7 +51,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${raleway.variable} antialiased font-raleway relative text-base bg-black`}>
+			<body className={`${raleway.variable} antialiased font-raleway relative text-base`}>
 				<Header />
 				{children}
 			</body>
