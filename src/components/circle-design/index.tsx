@@ -6,7 +6,7 @@ export const CircleDesign = () => {
 					<span className="text-2xl font-bold ">FNX</span>
 
 					{[
-						{ label: 'Tailored Solutions', top: '-105%', border: 'border-fnx-teal' },
+						{ label: 'Tailored Solutions', top: '-105%', border: 'border-fnx-teal', borderRadius: 'rounded-b-[170px]' },
 						{ label: 'Practical', bottom: '25%', left: '-105%', border: 'border-fnx-brown' },
 						{ label: 'Responsiveness', bottom: '25%', right: '-105%', border: 'border-fnx-blue' },
 						{ label: 'Real-World Experience', bottom: '-85%', right: '75%', border: 'border-fnx-gray' },
@@ -17,6 +17,11 @@ export const CircleDesign = () => {
 							className={`absolute flex flex-col justify-center items-center size-44 bg-white border-[22px] ${circle.border} rounded-full shadow-lg text-center`}
 							style={{ top: circle.top, left: circle.left, right: circle.right, bottom: circle.bottom }}>
 							<span className={`text-sm font-bold tracking-wide text-fnx-text`}>{circle.label}</span>
+							{/* <div className="relative size-full -z-10s">
+								<div
+									className={`size-full bg-red-600 absolute -bottom-[29%] ${circle.borderRadius}`}
+									style={{ borderRadius: circle.borderRadius }}></div>
+							</div> */}
 						</div>
 					))}
 				</div>

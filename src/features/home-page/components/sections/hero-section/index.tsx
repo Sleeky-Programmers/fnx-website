@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import heroImage from '@/assets/home-hero-image.png';
-import { GetStarted } from '@/components/getStarted';
+import { GetStarted } from '@/components/get-started-btn';
 
 export function HeroSection() {
 	return (

@@ -60,6 +60,9 @@ const config: Config = {
 					brown: '#A28874',
 					text: '#333333',
 					border: '#EDE7E0',
+					icons: {
+						brown: '#A88873',
+					},
 				},
 			},
 			fontFamily: {

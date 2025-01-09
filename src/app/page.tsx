@@ -1,6 +1,8 @@
 import aboutUsImage from '@/assets/home-about-us-image.png';
+import { ContactUsButton } from '@/components/contact-us-btn';
 import { HomePageCard } from '@/features/home-page/components/cards';
 import { HeroSection } from '@/features/home-page/components/sections/hero-section';
+import { WhyChooseUsSection } from '@/features/home-page/components/sections/why-choose-us';
 
 export default function Home() {
 	return (
@@ -26,7 +28,14 @@ export default function Home() {
 				</div>
 			</HomePageCard>
 
-			<section className=""></section>
+			<WhyChooseUsSection />
+
+			{/* Core Value design */}
+
+			<section className="w-full flex md:flex-row flex-col items-center justify-center gap-7 md:gap-5 bg-[#9F836D] text-white py-10">
+				<p className="font-bold text-3xl">Ready to get started?</p>
+				<ContactUsButton />
+			</section>
 		</main>
 	);
 }
