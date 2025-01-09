@@ -11,40 +11,40 @@
 		"**/lib/**/index.tsx": "${dirname} - Service",
 		"**/hooks/**/index.tsx": "${dirname} - Hook",
 		"**/types/**/index.tsx": "Types"
-	},
-	"importSorter.sortConfiguration.customOrderingRules.defaultNumberOfEmptyLinesAfterGroup": 2,
-	"importSorter.sortConfiguration.customOrderingRules.rules": [
-		{
-			"regex": "^next*",
-			"orderLevel": 10
-		},
-		{
-			"regex": "^react*",
-			"orderLevel": 10
-		},
-		{
-			"regex": "^@/lib/*",
-			"orderLevel": 20
-		},
-		{
-			"regex": "^mongoose*",
-			"orderLevel": 20
-		},
-		{
-			"regex": "^@/hooks/*",
-			"orderLevel": 30
-		},
-		{
-			"regex": "^@/components/*",
-			"orderLevel": 30
-		},
-		{
-			"regex": "^@/types/*",
-			"orderLevel": 40
-		},
-		{
-			"regex": ".*",
-			"orderLevel": 50
-		}
-	]
+	}
+	// "importSorter.sortConfiguration.customOrderingRules.defaultNumberOfEmptyLinesAfterGroup": 2,
+	// "importSorter.sortConfiguration.customOrderingRules.rules": [
+	// 	{
+	// 		"regex": "^next*",
+	// 		"orderLevel": 10
+	// 	},
+	// 	{
+	// 		"regex": "^react*",
+	// 		"orderLevel": 10
+	// 	},
+	// 	{
+	// 		"regex": "^@/lib/*",
+	// 		"orderLevel": 20
+	// 	},
+	// 	{
+	// 		"regex": "^mongoose*",
+	// 		"orderLevel": 20
+	// 	},
+	// 	{
+	// 		"regex": "^@/hooks/*",
+	// 		"orderLevel": 30
+	// 	},
+	// 	{
+	// 		"regex": "^@/components/*",
+	// 		"orderLevel": 30
+	// 	},
+	// 	{
+	// 		"regex": "^@/types/*",
+	// 		"orderLevel": 40
+	// 	},
+	// 	{
+	// 		"regex": ".*",
+	// 		"orderLevel": 50
+	// 	}
+	// ]
 }

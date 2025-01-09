@@ -3,7 +3,6 @@ import './globals.css';
 
 import localFont from 'next/font/local';
 
-import { CircleDesign } from '@/components/circle-design';
 import { Header } from '@/components/header';
 
 const raleway = localFont({
@@ -52,7 +51,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${raleway.variable} antialiased font-raleway bg-blacks`}>
+			<body className={`${raleway.variable} antialiased font-raleway relative text-base bg-black`}>
 				<Header />
 				{children}
 			</body>
