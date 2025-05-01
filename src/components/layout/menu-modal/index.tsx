@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { X, ChevronRight } from "lucide-react"; 
-
 import { useState } from "react"; 
 
 interface MenuModalProps {
@@ -24,14 +23,14 @@ export function MenuModal({ isOpen, onClose }: MenuModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <div className="fixed inset-0 z-50">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/50 z-50"
+            className="absolute inset-0 bg-black/50"
           />
 
           {/* Modal */}
@@ -40,7 +39,7 @@ export function MenuModal({ isOpen, onClose }: MenuModalProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-xl"
+            className="absolute top-0 right-0 h-full w-full max-w-md bg-white shadow-xl"
           >
             <div className="h-full p-8 overflow-y-auto">
               <div className="flex justify-between items-center mb-12">
@@ -96,7 +95,7 @@ export function MenuModal({ isOpen, onClose }: MenuModalProps) {
               </div>
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );

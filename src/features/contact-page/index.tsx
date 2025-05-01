@@ -38,19 +38,19 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-center">
           {[
             {
-              icon: <FaPhoneAlt className="text-2xl mb-2" />,
+              icon: <FaPhoneAlt className="text-sm p-2 mb-2 h-10 w-10 rounded-full bg-white text-[#9F836D]" />,
               title: "Call us",
               info: "+353 1 575 6091",
               delay: 0.2,
             },
             {
-              icon: <FaEnvelope className="text-2xl mb-2" />,
+              icon: <FaEnvelope className="text-sm p-2 mb-2 h-10 w-10 rounded-full bg-white text-[#9F836D]" />,
               title: "Email us",
               info: "enquiry@fnx.ie",
               delay: 0.4,
             },
             {
-              icon: <FaGlobe className="text-2xl mb-2" />,
+              icon: <FaGlobe className="text-sm p-2 mb-2 h-10 w-10 rounded-full bg-white text-[#9F836D]" />,
               title: "Visit us",
               info: "www.fnx.ie",
               delay: 0.6,

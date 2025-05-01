@@ -52,7 +52,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${raleway.variable} antialiased font-raleway relative text-base`}>
+			<body className={`${raleway.variable} antialiased font-raleway relative text-base overflow-x-hidden overflow`}>
 				<Header />
 				{children}
 				<Footer />
