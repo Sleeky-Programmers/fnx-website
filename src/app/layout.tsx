@@ -3,7 +3,8 @@ import './globals.css';
 
 import localFont from 'next/font/local';
 
-import { Header } from '@/components/header';
+import { Header } from '@/components/layout/header';
+import { Footer } from '@/components/layout/footer';
 
 const raleway = localFont({
 	src: './fonts/Raleway-VariableFont_wght.ttf',
@@ -54,6 +55,7 @@ export default function RootLayout({
 			<body className={`${raleway.variable} antialiased font-raleway relative text-base`}>
 				<Header />
 				{children}
+				<Footer />
 			</body>
 		</html>
 	);
