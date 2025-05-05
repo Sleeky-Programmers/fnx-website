@@ -44,7 +44,7 @@ export function LogoAnimationSection() {
           className="relative w-full aspect-square max-w-4xl mx-auto"
         >
           <Image
-            src="/FNX-values.png"
+            src="/hero-bg/FNX-values.png"
             alt="FNX Values Diagram"
             fill
             className="object-contain"
