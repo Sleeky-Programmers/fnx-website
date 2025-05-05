@@ -41,7 +41,7 @@ export function WhatWeDoContent({ direction }: TabContentProps) {
 
         <div className="relative w-full max-w-3xl aspect-square">
           <Image
-            src="/fnx-services.png"
+            src="/hero-bg/fnx-services.png"
             alt="Management Company Offering"
             fill
             className="object-cover"
