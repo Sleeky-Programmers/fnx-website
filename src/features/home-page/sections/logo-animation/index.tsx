@@ -22,7 +22,7 @@ export function LogoAnimationSection() {
         >
           <div className="relative w-48 h-48">
             <Image
-              src="/FNX-logo.png"
+              src="/hero-bg/FNX-logo.png"
               alt="FNX Logo"
               fill
               className="object-contain"
