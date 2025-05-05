@@ -46,7 +46,7 @@ export function MenuModal({ isOpen, onClose }: MenuModalProps) {
                 <h2 className="text-2xl font-bold text-[#003241]">MENU</h2>
                 <button
                   onClick={onClose}
-                  className="p-2 text-gray-400 hover:text-[#001F3F] transition-colors"
+                  className="p-2 text-gray-700 font-semibold hover:text-[#001F3F] transition-colors"
                   aria-label="Close Menu"
                 >
                   <X className="h-6 w-6" />
@@ -64,10 +64,10 @@ export function MenuModal({ isOpen, onClose }: MenuModalProps) {
                     <Link
                       href={item.href}
                       onClick={onClose}
-                      className="flex items-center gap-4 text-[#003241] group-hover:text-[#003241] transition-colors"
+                      className="flex items-center gap-2 text-[#003241] group-hover:text-[#003241] transition-colors"
                     >
                       <span className="text-md text-[#003241]">{item.id}</span>
-                      <span className="text-3xl font-semibold text-[#003241] group-hover:text-[#003241] transition-colors">
+                      <span className="text-4xl font-semibold text-[#003241] group-hover:text-[#003241] transition-colors">
                         {item.name}
                       </span>
                       <ChevronRight className="h-5 w-5 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />

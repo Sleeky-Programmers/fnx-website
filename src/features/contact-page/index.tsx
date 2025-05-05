@@ -44,7 +44,11 @@ export default function ContactPage() {
               delay: 0.2,
             },
             {
-              icon: <FaEnvelope className="text-sm p-2 mb-2 h-10 w-10 rounded-full bg-white text-[#9F836D]" />,
+              icon: (
+                <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center mb-2">
+                  <FaEnvelope className="text-[#9F836D] text-lg" />
+                </div>
+              ),
               title: "Email us",
               info: "enquiry@fnx.ie",
               delay: 0.4,

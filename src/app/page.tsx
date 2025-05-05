@@ -3,8 +3,8 @@
 import { GetStartedSection } from '@/components/buttons/cta-section';
 import { HeroSection } from '@/features/home-page/sections/hero-section';
 import { LogoAnimationSection } from '@/features/home-page/sections/logo-animation';
-import { WhoWeAreSection } from '@/features/home-page/sections/who-we-are/page';
-import { WhyChooseSection } from '@/features/home-page/sections/why-choose/page';
+import { WhoWeAreSection } from '@/features/home-page/sections/who-we-are';
+import { WhyChooseSection } from '@/features/home-page/sections/why-choose';
 
 
 export default function Home() {

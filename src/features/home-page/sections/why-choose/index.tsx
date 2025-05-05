@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Trophy, LightbulbIcon, Users } from "lucide-react";
 import { PiHandshakeLight } from "react-icons/pi";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { CiMedal } from "react-icons/ci";
@@ -39,7 +38,7 @@ export function WhyChooseSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[400px] lg:h-[500px] w-full overflow-hidden">
+          <div className="relative h-[400px] lg:h-[500px] w-80vw overflow-hidden ml-10">
             <Image
               src="/video-image.png"
               alt="Team collaboration"
@@ -52,15 +51,15 @@ export function WhyChooseSection() {
 
           <div className="space-y-8">
             {features.map((feature, index) => (
-              <div key={index} className="flex gap-2">
+              <div key={index} className="flex gap-2 w-90% mr-10">
                 <div className="flex-shrink-0">
                   <feature.icon className="h-7 w-7 p-[2px] rounded-full bg-[#9f836d]/30 text-[#9F836D]" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-[#003241] mb-2"> 
+                <div className="">
+                  <h3 className="text-xl font-semibold text-[#003241] mb-2 text-left"> 
                     {feature.title}
                   </h3>
-                  <p className="text-[#003241]">
+                  <p className="text-[#003241] text-left">
                     {feature.description}
                   </p>
                 </div>
