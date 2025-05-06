@@ -39,11 +39,11 @@ export function MenuModal({ isOpen, onClose }: MenuModalProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="absolute top-0 right-0 h-full w-full max-w-md bg-white shadow-xl"
+            className="absolute top-0 right-0 h-full w-full sm:max-w-sm md:max-w-md bg-white shadow-xl"
           >
-            <div className="h-full p-8 overflow-y-auto">
+           <div className="h-full px-4 py-6 md:p-8 overflow-y-auto">
               <div className="flex justify-between items-center mb-12">
-                <h2 className="text-2xl font-bold text-[#003241]">MENU</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-[#003241]">MENU</h2>
                 <button
                   onClick={onClose}
                   className="p-2 text-gray-700 font-semibold hover:text-[#001F3F] transition-colors"
@@ -67,9 +67,10 @@ export function MenuModal({ isOpen, onClose }: MenuModalProps) {
                       className="flex items-center gap-2 text-[#003241] group-hover:text-[#003241] transition-colors"
                     >
                       <span className="text-md text-[#003241]">{item.id}</span>
-                      <span className="text-4xl font-semibold text-[#003241] group-hover:text-[#003241] transition-colors">
+                      <span className="text-2xl md:text-4xl font-semibold text-[#003241] group-hover:text-[#003241] transition-colors">
                         {item.name}
                       </span>
+
                       <ChevronRight className="h-5 w-5 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
                     </Link>
 

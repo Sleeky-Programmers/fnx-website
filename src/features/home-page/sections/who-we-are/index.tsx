@@ -20,19 +20,24 @@ export function WhoWeAreSection() {
         className="space-y-6 bg-gray-200/50 w-full h-50% "
       >
         <div className="inline-block py-4 mt-10 mx-20">
-          <h2 className="text-4xl font-bold text-[#003241] mb-2">
-            Who we are
-          </h2>
-          <div className="h-1 w-16 bg-[#9F836D] mx-20" />
+        <h2 className="text-2xl lg:text-3xl font-bold text-[#003241] mb-2">
+                Who we are
+              </h2>
+              <div className="h-1 w-16 bg-[#9F836D] mt-2" />
         </div>
+        <div className="inline-block py-4 mx-20">
+        
+        <h3 className="text-xl lg:text-2xl font-semibold text-[#003241] mt-5 mb-2">
+              We are an Independently run <br className="hidden sm:block" />
+              Management Company
+            </h3>
 
-        <h3 className="text-2xl font-semibold text-[#003241] mx-20">
-          We are an Independently run <br />Management Company
-        </h3>
-
-        <p className="text-[#003241] leading-relaxed mx-20 pb-6">
-          We appreciate that launching and running a fund < br/> is an expensive, constantly evolving and time- < br/>consuming experience.
-        </p>
+        <p className="text-base lg:text-lg text-[#003241] leading-relaxed">
+              We appreciate that launching and running a fund <br className="hidden sm:block" />
+              is an expensive, constantly evolving and time- <br className="hidden sm:block" />
+              consuming experience.
+            </p>
+            </div>
       </motion.div>
 
       {/* Image Block */}
@@ -40,7 +45,8 @@ export function WhoWeAreSection() {
         initial={{ x: 100, opacity: 0 }}
         animate={isInView ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        className="relative h-[500px] lg:h-[400px] w-90vw overflow-hidden mr-[50px] lg:mr-12 px-4"
+        className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden px-4 mr-6 lg:mr-20"
+
 
       >
         <Image

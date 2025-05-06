@@ -13,7 +13,7 @@ export function LogoAnimationSection() {
           initial={{ opacity: 1 }}
           whileInView={{ opacity: 0 }}
           transition={{
-            delay: 0.9, // Wait 1.5s before starting fade out
+            delay: 0.9, 
             duration: 0.8,
             ease: "easeOut",
           }}
@@ -44,7 +44,7 @@ export function LogoAnimationSection() {
           className="relative w-full aspect-square max-w-4xl mx-auto"
         >
           <Image
-            src="/FNX-values.png"
+            src="/infogram/FNX-values.png"
             alt="FNX Values Diagram"
             fill
             className="object-contain"

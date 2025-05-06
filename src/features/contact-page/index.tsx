@@ -19,7 +19,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
-      <div className="relative z-10 w-1/2 max-w-6xl text-white">
+      <div className="relative z-10 w-full max-w-6xl text-white px-4 sm:px-8">
         {/* Hero Text */}
         <motion.div
           initial={{ y: 40, opacity: 0 }}
@@ -27,15 +27,15 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-3xl font-bold mb-2">Contact our FNX team</h2>
-          <p className="text-lg text-white/90 max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">Contact our FNX team</h2>
+          <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto">
             Our team is very happy to answer your questions. <br />
             Fill out the form and we’ll be in touch as soon as possible.
           </p>
         </motion.div>
 
         {/* Contact Info Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-16 text-center">
           {[
             {
               icon: <FaPhoneAlt className="text-sm p-2 mb-2 h-10 w-10 rounded-full bg-white text-[#9F836D]" />,
@@ -79,23 +79,23 @@ export default function ContactPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
-          className="bg-white p-8 rounded-2xl shadow-md space-y-6 text-gray-700 font-semibold"
+            className="bg-white p-6 sm:p-4 rounded-2xl shadow-md space-y-6 text-gray-700 font-bold max-w-4xl mx-auto"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
-            <div>
-              <label className="block mb-1">Your full name</label>
-              <input
-                type="text"
-                placeholder="Input your full name"
-                className="w-full p-3 rounded bg-white text-black border"
-              />
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mx-4">
             <div>
               <label className="block mb-1">Email</label>
               <input
                 type="email"
                 placeholder="Input your email"
-                className="w-full p-3 rounded bg-white text-black border"
+                className="w-full p-3 rounded bg-white text-black border font-normal"
+              />
+            </div>
+            <div>
+              <label className="block mb-1">Your Full name</label>
+              <input
+                type="text"
+                placeholder="Input your full name"
+                className="w-full p-3 rounded bg-white text-black border font-normal"
               />
             </div>
             <div>
@@ -103,7 +103,7 @@ export default function ContactPage() {
               <input
                 type="text"
                 placeholder="Input a subject"
-                className="w-full p-3 rounded bg-white text-black border"
+                className="w-full p-3 rounded bg-white text-black border font-normal"
               />
             </div>
             <div>
@@ -111,16 +111,16 @@ export default function ContactPage() {
               <input
                 type="text"
                 placeholder="Input your company website"
-                className="w-full p-3 rounded bg-white text-black border"
+                className="w-full p-3 rounded bg-white text-black border font-normal"
               />
             </div>
           </div>
-          <div>
+          <div className="mx-4">
             <label className="block mb-1">Message</label>
             <textarea
               rows={5}
               placeholder="Input your message here"
-              className="w-full p-3 rounded bg-white text-black resize-none border"
+              className="w-full p-3 rounded bg-white text-black resize-none border font-normal"
             />
           </div>
           <div className="text-center">

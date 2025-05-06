@@ -11,7 +11,6 @@ export function Header() {
   const [mounted, setMounted] = useState(false);
   const { scrollY } = useScroll();
   
-  // Only enable transform after component is mounted
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -33,10 +32,11 @@ export function Header() {
           backgroundColor: headerBackground,
           padding: headerPadding,
         }}
-        className="fixed top-0 left-0 right-0 z-40 w-full "
+        className="fixed top-0 left-0 right-0 z-40 w-full"
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-full">
+            
             {/* Logo */}
             <motion.div
               initial={{ y: -100, opacity: 0 }}
@@ -47,9 +47,10 @@ export function Header() {
                 <Image
                   src="/logo.png"
                   alt="Logo"
-                  width={120} 
+                  width={120}
                   height={60}
-                  className="transition-all duration-300"
+                  className="w-[100px] h-auto md:w-[120px] transition-all duration-300"
+                  priority
                 />
               </Link>
             </motion.div>
@@ -60,11 +61,11 @@ export function Header() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
               onClick={() => setIsOpen(true)}
-              className="text-white p-2 z-50 flex items-center gap-2 hover:text-gray-200 transition-colors"
+              className="text-white p-2 z-50 flex items-center gap-1 md:gap-2 hover:text-gray-200 transition-colors"
               aria-label="Toggle Menu"
             >
-              <span className="text-sm font-medium">MENU</span>
-              <Menu className="h-6 w-6" />
+              <span className="text-sm md:text-base font-medium">MENU</span>
+              <Menu className="h-5 w-5 md:h-6 md:w-6" />
             </motion.button>
           </div>
         </div>
