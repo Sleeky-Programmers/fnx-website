@@ -29,10 +29,11 @@ export function TeamMemberCard({
 
   return (
     <div
-      className={`flex flex-col md:flex-row ${
-        isReversed ? "md:flex-row-reverse" : ""
-      } items-center md:items-start gap-10`}
-    >
+    className={`flex flex-col ${
+      isReversed ? "md:flex-row-reverse" : "md:flex-row"
+    } items-center md:items-start gap-8 md:gap-10`}
+  >
+  
       {/* Image */}
       <motion.div
         initial={{ x: isReversed ? 100 : -100, opacity: 0 }}
@@ -41,7 +42,8 @@ export function TeamMemberCard({
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="w-full md:w-1/2 flex justify-center"
       >
-        <div className="relative w-full max-w-md h-80 rounded-lg overflow-hidden shadow-md">
+       <div className="relative w-full h-64 sm:h-72 md:h-80 max-w-xs sm:max-w-sm md:max-w-md rounded-lg overflow-hidden shadow-md">
+
           <Image
             src={member.photo}
             alt={member.name}

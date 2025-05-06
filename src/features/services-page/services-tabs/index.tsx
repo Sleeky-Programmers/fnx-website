@@ -24,27 +24,33 @@ export function ServicesTabs() {
       <div className="container mx-auto px-4">
         <Tabs value={selectedTab} onValueChange={handleTabChange} className="space-y-8 ">
           {/* Only Center the TabsList */}
-          <TabsList className="w-full flex justify-center mb-8 border-b ">
-           
-            <TabsTrigger 
-              value="what-we-do"
-              className="text-lg mb-8 text-[#9f836d] px-8 py-4 data-[state=active]:bg-[#9F836D] h-12 data-[state=active]:text-white transition-colors font-bold rounded-xl "
-            >
-              What We Do
-            </TabsTrigger>
-            <TabsTrigger 
-              value="fund-service-providers"
-              className="text-lg mb-8 text-[#9f836d] px-8 py-4 data-[state=active]:bg-[#9F836D] h-12 data-[state=active]:text-white font-bold rounded-xl transition-colors"
-            >
-              Fund Service Providers
-            </TabsTrigger>
-            <TabsTrigger 
-              value="typical-fund-structure"
-              className="text-lg mb-8 text-[#9f836d] px-8 py-4 data-[state=active]:bg-[#9F836D] h-12 data-[state=active]:text-white font-bold transition-colors rounded-xl"
-            >
-              Typical Fund Structure
-            </TabsTrigger>
-          </TabsList>
+          <TabsList className="w-full flex flex-row md:flex-nowrap justify-center gap-2 mb-8 border-b">
+
+  <TabsTrigger 
+    value="what-we-do"
+    className="text-sm md:text-lg h-10 mb-5 text-[#9f836d] px-4 py-2 md:px-8 md:py-4 data-[state=active]:bg-[#9F836D] data-[state=active]:text-white font-bold rounded-xl transition-colors"
+  >
+    <span className="md:inline hidden">What We Do</span>
+    <span className="inline md:hidden">Overview</span>
+  </TabsTrigger>
+
+  <TabsTrigger 
+    value="fund-service-providers"
+    className="text-sm md:text-lg h-10 mb-5 text-[#9f836d] px-4 py-2 md:px-8 md:py-4 data-[state=active]:bg-[#9F836D] data-[state=active]:text-white font-bold rounded-xl transition-colors"
+  >
+    <span className="md:inline hidden">Fund Service Providers</span>
+    <span className="inline md:hidden">Providers</span>
+  </TabsTrigger>
+
+  <TabsTrigger 
+    value="typical-fund-structure"
+    className="text-sm md:text-lg h-10 mb-5 text-[#9f836d] px-4 py-2 md:px-8 md:py-4 data-[state=active]:bg-[#9F836D] data-[state=active]:text-white font-bold rounded-xl transition-colors"
+  >
+    <span className="md:inline hidden">Typical Fund Structure</span>
+    <span className="inline md:hidden">Structure</span>
+  </TabsTrigger>
+
+</TabsList>
 
           <AnimatePresence mode="wait" custom={direction}>
             <TabsContent value="what-we-do" className="mt-8">

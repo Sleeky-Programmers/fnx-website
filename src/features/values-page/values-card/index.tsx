@@ -49,20 +49,21 @@ export function ValuesCards() {
         <div className="relative flex items-center justify-center">
           {/* FNX Logo */}
           <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
-            className="absolute -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-white rounded-full flex items-center justify-center z-10"
-          >
-            <div className="relative w-32 h-32">
-              <Image
-                src="/FNX-logo.png"
-                alt="FNX Logo"
-                fill
-                className="object-contain items-center justify-center"
-              />
-            </div>
-          </motion.div>
+  initial={{ scale: 0.5, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+  className="absolute -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-white rounded-full flex items-center justify-center z-10 hidden md:flex"
+>
+  <div className="relative w-32 h-32">
+    <Image
+      src="/FNX-logo.png"
+      alt="FNX Logo"
+      fill
+      className="object-contain items-center justify-center"
+    />
+  </div>
+</motion.div>
+
 
           {/* Cards Grid */}
           <div className="text-xs p-4 text-center grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
