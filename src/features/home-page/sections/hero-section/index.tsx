@@ -32,7 +32,7 @@ export function HeroSection() {
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.9, ease: 'easeOut' }}
-          className="font-bold text-center text-3xl text-[#D5D5D5]"
+          className="font-bold text-center text-2xl md:text-2xl lg:text-3xl text-[#D5D5D5]" 
         >
           AIFMD and Management Company Services
         </motion.p>

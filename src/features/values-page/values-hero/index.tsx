@@ -27,10 +27,10 @@ export function ValuesHero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-3xl mx-auto"
         >
-          <h1 className="text-3xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
+          <h1 className="text-2xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
             How We Work
           </h1>
-          <p className="text-xl text-white/90">
+          <p className="text-md text-white/90 md:text-xl lg:text-md mb-8">
             In an industry paralysed by complexity and cost, our values are simple but they are crucial and core to our undertaking.
           </p>
         </motion.div>

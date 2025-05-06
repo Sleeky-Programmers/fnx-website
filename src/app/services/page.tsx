@@ -6,8 +6,11 @@ export default function ServicesPage() {
   return (
     <main className="min-h-screen">
       <ServicesHero />
-      <ServicesTabs />
-     
+    
+      <div className="px-4 sm:px-6 md:px-10 lg:px-20 overflow-x-hidden">
+  <ServicesTabs />
+</div>
+
     </main>
   );
 }
