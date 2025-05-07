@@ -89,21 +89,21 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
         >
           <div className="sticky top-0 bg-white/80 backdrop-blur-sm py-4 z-20">
             <TabsList className="w-full flex flex-row justify-center gap-3 border-b pb-4">
-              {subTabs.map((tab) => (
-            <TabsTrigger
-            key={tab.value}
-            value={tab.value}
+            {subTabs.map((tab) => (
+              <TabsTrigger
+                key={tab.value}
+                value={tab.value}
             className="px-3 py-2.5 text-xs sm:text-sm lg:text-base text-[#9f836d] 
               rounded-xl transition-all duration-200 hover:bg-[#9F836D]/10
               data-[state=active]:bg-[#9F836D] data-[state=active]:text-white
               text-center min-h-[2.5rem] sm:min-h-[3rem] max-w-[120px] sm:max-w-none truncate whitespace-nowrap overflow-hidden text-ellipsis"
-          >
+              >
             <span className="block sm:hidden">{tab.shortLabel}</span>
             <span className="hidden sm:block">{tab.label}</span>
-          </TabsTrigger>
+              </TabsTrigger>
           
-              ))}
-            </TabsList>
+            ))}
+          </TabsList>
           </div>
 
           <div className="relative min-h-[500px] sm:min-h-[600px]">
