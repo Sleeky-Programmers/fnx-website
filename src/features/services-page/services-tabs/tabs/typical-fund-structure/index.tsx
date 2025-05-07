@@ -76,7 +76,7 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center space-y-4 mb-5 ">
-          <h2 className="text-xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 mt-5">
+          <h2 className="text-xl sm:text-2xl font-semibold mt-5">
             Typical Fund Structure
           </h2>
           <div className="h-1 w-20 sm:w-28 md:w-32 bg-[#9F836D] mx-auto" />

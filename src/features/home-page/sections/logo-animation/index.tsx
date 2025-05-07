@@ -36,7 +36,7 @@ export function LogoAnimationSection() {
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{
-            delay: 1.2, // Start a bit before logo fully fades
+            delay: 1.2, 
             duration: 1.2,
             ease: "easeOut",
           }}
