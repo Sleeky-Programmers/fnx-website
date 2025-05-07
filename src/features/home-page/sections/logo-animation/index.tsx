@@ -22,7 +22,7 @@ export function LogoAnimationSection() {
         >
           <div className="relative w-48 h-48">
             <Image
-              src="/hero-bg/FNX-logo.png"
+              src="/FNX-logo.png"
               alt="FNX Logo"
               fill
               className="object-contain"
@@ -36,19 +36,18 @@ export function LogoAnimationSection() {
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{
-            delay: 1.2, // Start a bit before logo fully fades
+            delay: 1.2, 
             duration: 1.2,
             ease: "easeOut",
           }}
           viewport={{ once: true, amount: 0.5 }}
-          className="relative w-full aspect-square max-w-4xl mx-auto"
-
-            fill        >
+          className="relative w-full aspect-square max-w-4xl mx-auto">
           <Image
             src="/infogram/FNX-values.png"
             alt="FNX Values Diagram"
             className="object-contain"
             priority
+            fill
           />
         </motion.div>
 
