@@ -15,13 +15,13 @@ export function TeamMembers() {
   className="text-center mb-16 px-4 sm:px-6"
 >
   <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
-    Meet the Team Behind Fnx
+    Meet the Team Behind West53
   </h2>
 
   <div className="h-1 w-20 sm:w-24 md:w-32 bg-[#9F836D] mx-auto mb-4" />
 
   <p className="text-sm sm:text-base text-gray-600 max-w-md sm:max-w-xl md:max-w-3xl mx-auto">
-    At Fnx, our diverse team drives innovation, delivering world-class
+    At West53, our diverse team drives innovation, delivering world-class
     solutions to help clients thrive in a fast-changing world.
   </p>
 </motion.div>

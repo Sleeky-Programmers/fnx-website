@@ -56,7 +56,7 @@ export function ValuesCards() {
 >
   <div className="relative w-32 h-32">
     <Image
-      src="/FNX-logo.png"
+      src="/West53-logo.jpeg"
       alt="FNX Logo"
       fill
       className="object-contain items-center justify-center"

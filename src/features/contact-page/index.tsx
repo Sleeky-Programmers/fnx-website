@@ -27,7 +27,7 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-2">Contact our FNX team</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">Contact our West53 team</h2>
           <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto">
             Our team is very happy to answer your questions. <br />
             Fill out the form and we’ll be in touch as soon as possible.
@@ -50,13 +50,13 @@ export default function ContactPage() {
                 </div>
               ),
               title: "Email us",
-              info: "enquiry@fnx.ie",
+              info: "enquiry@west53.ie",
               delay: 0.4,
             },
             {
               icon: <FaGlobe className="text-sm p-2 mb-2 h-10 w-10 rounded-full bg-white text-[#9F836D]" />,
               title: "Visit us",
-              info: "www.fnx.ie",
+              info: "www.west53.ie",
               delay: 0.6,
             },
           ].map(({ icon, title, info, delay }, index) => (

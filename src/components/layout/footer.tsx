@@ -48,15 +48,15 @@ export function Footer() {
             <div className="space-y-4 text-gray-400 text-sm max-w-4xl">
               <p className="flex items-start gap-3">
                 <span className="text-[#9F836D] flex-shrink-0">◆</span>
-                <span>FNX Dublin Limited is registered in the Republic of Ireland with <span className="font-semibold text-gray-300">Company Number 682114</span>.</span>
+                <span>West53 Dublin Limited is registered in the Republic of Ireland with <span className="font-semibold text-gray-300">Company Number 682114</span>.</span>
               </p>
               <p className="flex items-start gap-3">
                 <span className="text-[#9F836D] flex-shrink-0">◆</span>
-                <span>FNX Limited is registered in the Republic of Ireland with <span className="font-semibold text-gray-300">Company Number 735711</span>.</span>
+                <span>West53 Limited is registered in the Republic of Ireland with <span className="font-semibold text-gray-300">Company Number 735711</span>.</span>
               </p>
               <p className="flex items-start gap-3">
                 <span className="text-[#9F836D] flex-shrink-0">◆</span>
-                <span>FNX Dublin Limited is authorized under AIFMD by Central Bank of Ireland with <span className="font-semibold text-gray-300">registration number C144669</span>.</span>
+                <span>West53 Dublin Limited is authorized under AIFMD by Central Bank of Ireland with <span className="font-semibold text-gray-300">registration number C144669</span>.</span>
               </p>
             </div>
 

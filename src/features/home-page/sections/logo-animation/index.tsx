@@ -22,7 +22,7 @@ export function LogoAnimationSection() {
         >
           <div className="relative w-48 h-48">
             <Image
-              src="/FNX-logo.png"
+              src="/West53-logo.jpeg"
               alt="FNX Logo"
               fill
               className="object-contain"
@@ -43,7 +43,7 @@ export function LogoAnimationSection() {
           viewport={{ once: true, amount: 0.5 }}
           className="relative w-full aspect-square max-w-4xl mx-auto">
           <Image
-            src="/infogram/FNX-values.png"
+            src="/infogram/West53-values.png"
             alt="FNX Values Diagram"
             className="object-contain"
             priority
