@@ -13,10 +13,10 @@ const raleway = localFont({
 	preload: true,
 });
 
-const title_longName = 'Fnx';
+const title_longName = 'West53';
 const title = `${title_longName} | Global Innovation Experts in Software Development & Product Design`;
 const description =
-	'Fnx is a global innovation company delivering software development, product design, and strategies to help businesses thrive in a fast-changing world.';
+	'West53 is a global innovation company delivering software development, product design, and strategies to help businesses thrive in a fast-changing world.';
 const keywords =
 	'Global innovation company, Software development, Product design, Innovation strategy, Digital solutions, Business growth tools, Cutting-edge expertise, Thriving in a fast-changing world, High-quality digital solutions, Business innovation experts';
 const url = `${process.env.BASE_URL}`;
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		title,
 		description,
-		siteName: 'Fnx',
+		siteName: 'West53',
 		images: ['/logo.png'],
 	},
 	appleWebApp: { title, capable: true, startupImage: '/logo.png' },

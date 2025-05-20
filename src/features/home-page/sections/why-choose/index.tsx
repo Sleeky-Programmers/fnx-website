@@ -33,7 +33,7 @@ export function WhyChooseSection() {
         {/* Heading */}
         <div className="text-center mb-12">
           <h2 className="text-2xl lg:text-3xl font-bold text-[#003241] mb-2">
-            Why choose FNX?
+            Why choose West53?
           </h2>
           <div className="h-1 w-16 bg-[#9F836D] mx-auto" />
           <p className="text-lg lg:text-2xl font-medium text-[#003241] mt-4">
