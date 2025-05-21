@@ -16,9 +16,9 @@ const companyLinks = [
 ];
 
 const legalLinks = [
-  { name: "Disclaimer", href: "#disclaimer" },
-  { name: "Privacy Policy", href: "#privacy" },
-  { name: "SFDR Disclosures", href: "#sfdr" },
+  { name: "Disclaimer", href: "legal/disclaimer" },
+  { name: "Privacy Policy", href: "legal/privacy" },
+  { name: "SFDR Disclosures", href: "legal/sfdr" },
 ];
 
 export function Footer() {
@@ -37,7 +37,7 @@ export function Footer() {
           <div className="lg:col-span-7">
             <Link href="/" className="inline-block mb-6">
               <Image
-                src="/logo.png"
+                src="/logo-white.png"
                 alt="Logo"
                 width={120}
                 height={60}
@@ -46,22 +46,23 @@ export function Footer() {
             </Link>
             
             <div className="space-y-4 text-gray-400 text-sm max-w-4xl">
-              <p className="flex items-start gap-3">
-                <span className="text-[#9F836D] flex-shrink-0">◆</span>
-                <span>West53 Dublin Limited is registered in the Republic of Ireland with <span className="font-semibold text-gray-300">Company Number 682114</span>.</span>
-              </p>
-              <p className="flex items-start gap-3">
-                <span className="text-[#9F836D] flex-shrink-0">◆</span>
-                <span>West53 Limited is registered in the Republic of Ireland with <span className="font-semibold text-gray-300">Company Number 735711</span>.</span>
-              </p>
-              <p className="flex items-start gap-3">
-                <span className="text-[#9F836D] flex-shrink-0">◆</span>
-                <span>West53 Dublin Limited is authorized under AIFMD by Central Bank of Ireland with <span className="font-semibold text-gray-300">registration number C144669</span>.</span>
-              </p>
+             <p className="flex items-start gap-3">
+  <span className="text-[#9F836D] flex-shrink-0">◆</span>
+  <span>West 53 Capital Limited, trading as West53, is registered in the Republic of Ireland with <span className="font-semibold text-gray-300">Company Number 682114</span>.</span>
+</p>
+<p className="flex items-start gap-3">
+  <span className="text-[#9F836D] flex-shrink-0">◆</span>
+  <span>West 53 Advisory Services Limited is registered in the Republic of Ireland with <span className="font-semibold text-gray-300">Company Number 735711</span>.</span>
+</p>
+<p className="flex items-start gap-3">
+  <span className="text-[#9F836D] flex-shrink-0">◆</span>
+  <span>West 53 Capital Limited is authorized under AIFMD by Central Bank of Ireland with <span className="font-semibold text-gray-300">registration number C144669</span>.</span>
+</p>
+
             </div>
 
             <Link 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/company/west-53-capital-limited"
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center mt-6 text-[#9F836D] hover:text-[#9F836D]/80 transition-colors"

@@ -5,8 +5,9 @@ import Image from "next/image";
 
 export function LogoAnimationSection() {
   return (
-    <section className="relative min-h-[120vh] flex items-center justify-center bg-white overflow-hidden">
-      <div className="relative w-full max-w-7xl mx-auto">
+   <section className="relative min-h-[90vh] md:min-h-[100vh] flex items-center justify-center bg-white overflow-hidden">
+
+      <div className="relative w-full max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Small Logo (appears first, fades out) */}
         <motion.div
