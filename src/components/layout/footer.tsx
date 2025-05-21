@@ -16,9 +16,9 @@ const companyLinks = [
 ];
 
 const legalLinks = [
-  { name: "Disclaimer", href: "legal/disclaimer" },
-  { name: "Privacy Policy", href: "legal/privacy" },
-  { name: "SFDR Disclosures", href: "legal/sfdr" },
+  { name: "Disclaimer", href: "/legal/disclaimer" },
+  { name: "Privacy Policy", href: "/legal/privacy" },
+  { name: "SFDR Disclosures", href: "/legal/sfdr" },
 ];
 
 export function Footer() {
