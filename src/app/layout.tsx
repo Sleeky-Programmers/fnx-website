@@ -13,8 +13,7 @@ const raleway = localFont({
 	preload: true,
 });
 
-const title_longName = 'West53';
-const title = `${title_longName} | Global Innovation Experts in Software Development & Product Design`;
+const title = 'West53 Capital';
 const description =
 	'West53 is a global innovation company delivering software development, product design, and strategies to help businesses thrive in a fast-changing world.';
 const keywords =
@@ -22,11 +21,11 @@ const keywords =
 const url = `${process.env.BASE_URL}`;
 
 export const metadata: Metadata = {
-	metadataBase: new URL(url),
-	title: {
-		default: title,
-		template: `%s`,
-	},
+  metadataBase: new URL(url),
+  title: {
+    default: title,
+    template: `%s`,
+  },
 	description,
 	keywords,
 	robots: 'index, follow',

@@ -39,7 +39,8 @@ export function MenuModal({ isOpen, onClose }: MenuModalProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="absolute top-0 right-0 h-full w-full sm:max-w-sm md:max-w-md bg-white shadow-xl"
+           className="absolute top-0 right-0 h-full w-full max-w-[80%] sm:max-w-sm md:max-w-md bg-white shadow-xl rounded-l-xl"
+
           >
            <div className="h-full px-4 py-6 md:p-8 overflow-y-auto">
               <div className="flex justify-between items-center mb-12">
