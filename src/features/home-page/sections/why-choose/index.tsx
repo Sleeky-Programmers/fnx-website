@@ -30,7 +30,6 @@ export function WhyChooseSection() {
   return (
     <section className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        {/* Heading */}
         <div className="text-center mb-12">
           <h2 className="text-2xl lg:text-3xl font-bold text-[#003241] mb-2">
             Why choose West53?

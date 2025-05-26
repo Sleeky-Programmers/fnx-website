@@ -18,7 +18,6 @@ export function WhoWeAreSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="bg-gray-100/60 rounded-2xl p-8 sm:p-12 space-y-6 shadow-sm"
         >
-          {/* Heading */}
           <div>
             <h2 className="text-2xl lg:text-3xl font-bold text-[#003241] mb-2">
               Who we are
