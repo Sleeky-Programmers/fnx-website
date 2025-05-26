@@ -1,28 +1,28 @@
 "use client";
 
-import Image from "next/image";
 import { PiHandshakeLight } from "react-icons/pi";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { CiMedal } from "react-icons/ci";
+import { motion } from "framer-motion";
 
 const features = [
   {
     icon: CiMedal,
-    title: "A Legacy of Excellence:",
+    title: "A Legacy of Excellence",
     description:
-      "Our team has worked with hundreds of investment managers over the last thirty years. The feedback from those relationships has led to the reason we launched our firm and the ethos of how we run our business.",
+      "Over the last 30 years, our team has partnered with hundreds of investment managers. Their insights shaped the foundation of our firm.",
   },
   {
     icon: HiOutlineLightBulb,
-    title: "Comprehensive Insight:",
+    title: "Comprehensive Insight",
     description:
-      "We worked on buy side to the sell side and we feel that helps understand the needs of our clients.",
+      "We’ve worked across both buy and sell sides, offering us a unique understanding of our clients’ evolving needs.",
   },
   {
     icon: PiHandshakeLight,
-    title: "Strong Relationships:",
+    title: "Strong Relationships",
     description:
-      "We maintain relationships with clients based on a foundation of trust and mutual respect.",
+      "Our client partnerships are built on mutual respect, transparency, and long-term trust.",
   },
 ];
 
@@ -37,45 +37,32 @@ export function WhyChooseSection() {
           </h2>
           <div className="h-1 w-16 bg-[#9F836D] mx-auto" />
           <p className="text-lg lg:text-2xl font-medium text-[#003241] mt-4">
-            DECADES OF EXPERTISE BACKED BY TRUST AND INNOVATION
+            Decades of expertise backed by trust and innovation
           </p>
         </div>
 
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Image Block */}
-          <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden rounded-2xl">
-            <Image
-              src="/video-image.png"
-              alt="Team collaboration"
-              fill
-              className="object-cover rounded-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              priority
-            />
-          </div>
-
-          {/* Feature List */}
-          <div className="space-y-8 px-2 sm:px-4 lg:px-0">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="flex gap-4 max-w-full sm:max-w-[95%] items-start"
-              >
-                <div className="flex-shrink-0">
-                  <feature.icon className="h-7 w-7 p-[2px] rounded-full bg-[#9f836d]/30 text-[#9F836D]" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-[#003241] mb-2 text-left">
-                    {feature.title}
-                  </h3>
-                  <p className="text-[#003241] text-left">
-                    {feature.description}
-                  </p>
-                </div>
+        {/* Feature Grid */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 flex flex-col items-start"
+            >
+              <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-[#9f836d]/20 text-[#9F836D]">
+                <feature.icon className="h-6 w-6" />
               </div>
-            ))}
-          </div>
+              <h3 className="text-lg font-semibold text-[#003241] mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-sm text-[#003241] leading-relaxed">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
