@@ -41,7 +41,6 @@ export function WhyChooseSection() {
           </p>
         </div>
 
-        {/* Feature Grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <motion.div

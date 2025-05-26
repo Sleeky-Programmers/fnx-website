@@ -26,7 +26,7 @@ export function WhoWeAreSection() {
             <div className="h-1 w-16 bg-[#9F836D] mt-2" />
           </div>
 
-          {/* Subheading & Content */}
+    
           <div className="space-y-4 text-[#003241]">
             <h3 className="text-xl lg:text-2xl font-semibold items-center">
               We are an Independently run Management Company
