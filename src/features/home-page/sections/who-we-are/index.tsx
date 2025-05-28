@@ -3,11 +3,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-
-
 export function WhoWeAreSection() {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const isInView = useInView(sectionRef, { margin: "-100px" });
 
   return (
     <section className="py-24 bg-white" ref={sectionRef}>
@@ -25,9 +23,8 @@ export function WhoWeAreSection() {
             <div className="h-1 w-16 bg-[#9F836D] mt-2" />
           </div>
 
-    
           <div className="space-y-4 text-[#003241]">
-            <h3 className="text-xl lg:text-2xl font-semibold items-center">
+            <h3 className="text-xl lg:text-2xl font-semibold">
               We are an Independently run Management Company
             </h3>
             <p className="text-base lg:text-lg leading-relaxed text-justify">

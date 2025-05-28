@@ -20,10 +20,11 @@ export default function ContactPage() {
       </div>
 
       <div className="relative z-10 w-full max-w-6xl text-white px-4 sm:px-8">
-        {/* Hero Text */}
+        {/* Heading */}
         <motion.div
           initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -63,7 +64,8 @@ export default function ContactPage() {
             <motion.div
               key={index}
               initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.6, delay }}
               className="flex flex-col items-center"
             >
@@ -74,64 +76,65 @@ export default function ContactPage() {
           ))}
         </div>
 
-        {/* Contact Form */}
-        <motion.form
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-            className="bg-white p-6 sm:p-4 rounded-2xl shadow-md space-y-6 text-gray-700 font-bold max-w-4xl mx-auto"
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mx-4">
-            <div>
-              <label className="block mb-1">Email</label>
-              <input
-                type="email"
-                placeholder="Input your email"
-                className="w-full p-3 rounded bg-white text-black border font-normal"
-              />
-            </div>
-            <div>
-              <label className="block mb-1">Your Full name</label>
-              <input
-                type="text"
-                placeholder="Input your full name"
-                className="w-full p-3 rounded bg-white text-black border font-normal"
-              />
-            </div>
-            <div>
-              <label className="block mb-1">Subject</label>
-              <input
-                type="text"
-                placeholder="Input a subject"
-                className="w-full p-3 rounded bg-white text-black border font-normal"
-              />
-            </div>
-            <div>
-              <label className="block mb-1">Company Website</label>
-              <input
-                type="text"
-                placeholder="Input your company website"
-                className="w-full p-3 rounded bg-white text-black border font-normal"
-              />
-            </div>
-          </div>
-          <div className="mx-4">
-            <label className="block mb-1">Message</label>
-            <textarea
-              rows={5}
-              placeholder="Input your message here"
-              className="w-full p-3 rounded bg-white text-black resize-none border font-normal"
-            />
-          </div>
-          <div className="text-center">
-            <button
-              type="submit"
-              className="bg-[#9F836D] text-white font-semibold px-10 py-2 rounded hover:bg-[#9F837D] transition"
-            >
-              Send
-            </button>
-          </div>
-        </motion.form>
+<motion.form
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: false, amount: 0.3 }}
+  transition={{ duration: 1, delay: 1 }}
+  className="bg-white p-6 sm:p-4 rounded-2xl shadow-md space-y-6 text-gray-700 font-bold max-w-4xl mx-auto"
+>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mx-4">
+    <div>
+      <label className="block mb-1">Email</label>
+      <input
+        type="email"
+        placeholder="Input your email"
+        className="w-full p-3 rounded bg-white text-black border font-normal border-[#9F836D] focus:shadow-md focus:shadow-[#9F836D]/30 focus:outline-none focus:border-[#9F836D]"
+      />
+    </div>
+    <div>
+      <label className="block mb-1">Your Full name</label>
+      <input
+        type="text"
+        placeholder="Input your full name"
+        className="w-full p-3 rounded bg-white text-black border font-normal border-[#9F836D] focus:shadow-md focus:shadow-[#9F836D]/30 focus:outline-none focus:border-[#9F836D]"
+      />
+    </div>
+    <div>
+      <label className="block mb-1">Subject</label>
+      <input
+        type="text"
+        placeholder="Input a subject"
+        className="w-full p-3 rounded bg-white text-black border font-normal border-[#9F836D] focus:shadow-md focus:shadow-[#9F836D]/30 focus:outline-none focus:border-[#9F836D]"
+      />
+    </div>
+    <div>
+      <label className="block mb-1">Company Website</label>
+      <input
+        type="text"
+        placeholder="Input your company website"
+        className="w-full p-3 rounded bg-white text-black border font-normal border-[#9F836D] focus:shadow-md focus:shadow-[#9F836D]/30 focus:outline-none focus:border-[#9F836D]"
+      />
+    </div>
+  </div>
+  <div className="mx-4">
+    <label className="block mb-1">Message</label>
+    <textarea
+      rows={5}
+      placeholder="Input your message here"
+      className="w-full p-3 rounded bg-white text-black resize-none border font-normal border-[#9F836D] focus:shadow-md focus:shadow-[#9F836D]/30 focus:outline-none focus:border-[#9F836D]"
+    />
+  </div>
+  <div className="text-center">
+    <button
+      type="submit"
+      className="bg-[#9F836D] text-white font-semibold px-10 py-2 rounded hover:bg-[#9F837D] transition"
+    >
+      Send
+    </button>
+  </div>
+</motion.form>
+
       </div>
     </section>
   );
