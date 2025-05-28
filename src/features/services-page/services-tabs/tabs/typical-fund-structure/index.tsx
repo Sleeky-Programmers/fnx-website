@@ -71,7 +71,7 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
       initial="enter"
       animate="center"
       exit="exit"
-      transition={{ duration: 0.5, type: "spring", bounce: 0.3 }}
+      transition={{ duration: 0.5, type: "spring", bounce: 0.5 }}
       className="w-full min-h-[calc(100vh-6rem)] px-4 sm:px-6 lg:px-8 py-8 sm:py-12"
     >
       <div className="max-w-7xl mx-auto">
@@ -120,7 +120,7 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
                     initial="enter"
                     animate="center"
                     exit="exit"
-                    transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}
+                    transition={{ duration: 0.4, type: "spring", bounce: 0.4 }}
                     className="space-y-8"
                   >
                     <p className="text-gray-600 text-md sm:text-lg max-w-3xl mx-auto text-center px-4">

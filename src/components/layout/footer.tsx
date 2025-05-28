@@ -91,13 +91,13 @@ export function Footer() {
                 animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut" }}
               >
-                <h3 className="text-lg font-semibold text-gray-300 mb-4">Company</h3>
+                <h3 className="text-md font-semibold text-gray-300 mb-4">Company</h3>
                 <ul className="space-y-3">
                   {companyLinks.map((link) => (
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className={`transition-colors hover:text-[#9F836D] ${
+                        className={`transition-colors text-sm hover:text-[#9F836D] ${
                           pathname === link.href ? highlightColor : defaultColor
                         }`}
                       >
@@ -113,13 +113,13 @@ export function Footer() {
                 animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
                 transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
               >
-                <h3 className="text-lg font-semibold text-gray-300 mb-4">Legal</h3>
+                <h3 className="text-md font-semibold text-gray-300 mb-4">Legal</h3>
                 <ul className="space-y-3">
                   {legalLinks.map((link) => (
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className="text-gray-400 hover:text-[#9F836D] transition-colors"
+                        className="text-gray-400 text-sm hover:text-[#9F836D] transition-colors"
                       >
                         {link.name}
                       </Link>

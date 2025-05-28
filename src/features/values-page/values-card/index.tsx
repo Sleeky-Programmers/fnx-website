@@ -47,8 +47,7 @@ export function ValuesCards() {
         </motion.div>
 
         <div className="relative flex items-center justify-center">
-          {/* FNX Logo */}
-          <motion.div
+              <motion.div
          initial={{ scale: 0.5, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
@@ -66,30 +65,30 @@ export function ValuesCards() {
 </motion.div>
 
 
-       <div className="text-xs p-4 text-center grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center justify-center justify-items-center">
 
-            {values.map((value, index) => (
-             <motion.div
-             key={value.title}
-              initial={{ x: index < 2 ? 100 : -100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: false, amount: 0.3 }}
-                transition={{
-                  duration: 0.8,
-                  ease: "easeOut",
-                  delay: index < 2 ? 0.3 : 0.6
-                }}
-             className=" w-96 h-96 rounded-2xl overflow-hidden flex"
-           >
-             <ValueCard
-               title={value.title}
-               description={value.description}
-               variant={value.variant}
-             />
-           </motion.div>
-           
-            ))}
-          </div>
+          <div className="text-xs p-4 text-center grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center justify-center justify-items-center">
+  {values.map((value, index) => (
+    <motion.div
+      key={value.title}
+      initial={{ y: 40, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{
+        duration: 0.7,
+        ease: "easeOut",
+        delay: index * 0.25
+      }}
+      className="w-full max-w-sm h-96 rounded-2xl text-center overflow-hidden flex mx-auto"
+    >
+      <ValueCard
+        title={value.title}
+        description={value.description}
+        variant={value.variant}
+      />
+    </motion.div>
+  ))}
+</div>
+
         </div>
       </div>
     </section>
