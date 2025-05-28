@@ -4,6 +4,8 @@ import { PiHandshakeLight } from "react-icons/pi";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { CiMedal } from "react-icons/ci";
 import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 const features = [
   {
@@ -27,8 +29,11 @@ const features = [
 ];
 
 export function WhyChooseSection() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { margin: "-100px" });
+
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-24 bg-gray-50" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-2xl lg:text-3xl font-bold text-[#003241] mb-2">
@@ -44,10 +49,9 @@ export function WhyChooseSection() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
               className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 flex flex-col items-start"
             >
               <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-[#9f836d]/20 text-[#9F836D]">

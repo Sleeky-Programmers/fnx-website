@@ -23,7 +23,7 @@ const legalLinks = [
 
 export function Footer() {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const isInView = useInView(sectionRef, { margin: "-100px" });
   const pathname = usePathname();
 
   const highlightColor = "text-[#9F836D]";
@@ -33,8 +33,14 @@ export function Footer() {
     <footer ref={sectionRef} className="bg-[#003241] text-white pt-12 pb-4 px-4 md:px-16"> 
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+          
           {/* Logo and Company Info */}
-          <div className="lg:col-span-7">
+          <motion.div
+            className="lg:col-span-7"
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+          >
             <Link href="/" className="inline-block mb-6">
               <Image
                 src="/logo-white.png"
@@ -45,20 +51,25 @@ export function Footer() {
               />
             </Link>
             
-            <div className="space-y-4 text-gray-400 text-sm max-w-4xl">
-             <p className="flex items-start gap-3">
-  <span className="text-[#9F836D] flex-shrink-0">◆</span>
-  <span>West 53 Capital Limited, trading as West53, is registered in the Republic of Ireland with <span className="font-semibold text-gray-300">Company Number 682114</span>.</span>
-</p>
-<p className="flex items-start gap-3">
-  <span className="text-[#9F836D] flex-shrink-0">◆</span>
-  <span>West 53 Advisory Services Limited is registered in the Republic of Ireland with <span className="font-semibold text-gray-300">Company Number 735711</span>.</span>
-</p>
-<p className="flex items-start gap-3">
-  <span className="text-[#9F836D] flex-shrink-0">◆</span>
-  <span>West 53 Capital Limited is authorized under AIFMD by Central Bank of Ireland with <span className="font-semibold text-gray-300">registration number C144669</span>.</span>
-</p>
-
+            <div className="space-y-4 text-gray-400 text-xs max-w-4xl">
+              <p className="flex items-start gap-3">
+                <span className="text-[#9F836D] flex-shrink-0">◆</span>
+                <span>
+                  West53 Capital Limited, trading as West53, is registered in the Republic of Ireland with Company Number <span className="font-semibold text-[#9F836D]">682114</span>.
+                </span>
+              </p>
+              <p className="flex items-start gap-3">
+                <span className="text-[#9F836D] flex-shrink-0">◆</span>
+                <span>
+                  West53 Advisory Services Limited is registered in the Republic of Ireland with Company Number <span className="font-semibold text-[#9F836D]">735711</span>.
+                </span>
+              </p>
+              <p className="flex items-start gap-3">
+                <span className="text-[#9F836D] flex-shrink-0">◆</span>
+                <span>
+                  West53 Capital Limited is authorized under AIFMD by Central Bank of Ireland with registration number <span className="font-semibold text-[#9F836D]">C144669</span>.
+                </span>
+              </p>
             </div>
 
             <Link 
@@ -69,10 +80,12 @@ export function Footer() {
             >
               <FaLinkedin className="text-2xl" />
             </Link>
-          </div>
+          </motion.div>
 
+          {/* Navigation Links */}
           <div className="lg:col-span-5">
             <div className="grid grid-cols-2 gap-8 sm:gap-16">
+              
               {/* Company Links */}
               <motion.div
                 initial={{ y: 100, opacity: 0 }}
@@ -119,9 +132,14 @@ export function Footer() {
             </div>
 
             {/* Copyright */}
-            <div className="mt-12 pt-8 border-t border-gray-700">
+            <motion.div
+              className="mt-12 pt-8 border-t border-gray-700"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
               <p className="text-sm text-gray-400">© All Rights Reserved.</p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

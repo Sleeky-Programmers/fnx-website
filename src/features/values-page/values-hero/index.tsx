@@ -21,19 +21,21 @@ export function ValuesHero() {
   <div className="absolute inset-0 bg-black/60 z-10" />
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-3xl mx-auto"
-        >
-          <h1 className="text-2xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
-            How We Work
-          </h1>
-          <p className="text-md text-white/90 md:text-xl lg:text-md mb-8">
-            In an industry paralysed by complexity and cost, our values are simple but they are crucial and core to our undertaking.
-          </p>
-        </motion.div>
+     <motion.div
+  initial={{ y: 50, opacity: 0 }}
+  whileInView={{ y: 0, opacity: 1 }}
+  viewport={{ once: false, amount: 0.3 }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="max-w-3xl mx-auto"
+>
+  <h1 className="text-2xl md:text-2xl lg:text-3xl font-bold text-white mb-4">
+    How We Work
+  </h1>
+  <p className="text-md text-white/90 md:text-xl lg:text-md mb-8">
+    In an industry paralysed by complexity and cost, our values are simple but they are crucial and core to our undertaking.
+  </p>
+</motion.div>
+
       </div>
     </section>
   );

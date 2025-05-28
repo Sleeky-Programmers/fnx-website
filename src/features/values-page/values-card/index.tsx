@@ -36,7 +36,7 @@ export function ValuesCards() {
           initial={{ y: -60, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-20 items-center"
+          className="text-center mb-20"
         >
              <div className="flex flex-col items-center text-center mb-10"> 
           <h2 className="text-3xl md:text-2xl font-bold mb-2">Our Values</h2>
@@ -49,10 +49,11 @@ export function ValuesCards() {
         <div className="relative flex items-center justify-center">
           {/* FNX Logo */}
           <motion.div
-  initial={{ scale: 0.5, opacity: 0 }}
-  animate={{ scale: 1, opacity: 1 }}
-  transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
-  className="absolute -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-white rounded-full flex items-center justify-center z-10 hidden md:flex"
+         initial={{ scale: 0.5, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+          viewport={{ once: false }}
+  className="absolute -translate-x-1/2 -translate-y-1/2 w-52 h-52 bg-white rounded-full flex items-center justify-center z-10 hidden md:flex"
 >
   <div className="relative w-32 h-32">
     <Image
@@ -65,26 +66,20 @@ export function ValuesCards() {
 </motion.div>
 
 
-          {/* Cards Grid */}
-          <div className="text-xs p-4 text-center grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+       <div className="text-xs p-4 text-center grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center justify-center justify-items-center">
+
             {values.map((value, index) => (
              <motion.div
              key={value.title}
-             initial={{ 
-               x: index < 2 ? 100 : -100, 
-               opacity: 0 
-             }}
-             whileInView={{ 
-               x: 0, 
-               opacity: 1 
-             }}
-             viewport={{ once: true, amount: 0.3 }}
-             transition={{
-               duration: 0.8,
-               ease: "easeOut",
-               delay: index < 2 ? 0.3 : 0.6
-             }}
-             className="aspect-square w-80 h-80 md:w-80 md:h-80 rounded-2xl overflow-hidden flex"
+              initial={{ x: index < 2 ? 100 : -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: false, amount: 0.3 }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeOut",
+                  delay: index < 2 ? 0.3 : 0.6
+                }}
+             className=" w-96 h-96 rounded-2xl overflow-hidden flex"
            >
              <ValueCard
                title={value.title}
