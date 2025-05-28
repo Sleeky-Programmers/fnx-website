@@ -52,19 +52,19 @@ export function Footer() {
             </Link>
             
             <div className="space-y-4 text-gray-400 text-xs max-w-4xl">
-              <p className="flex items-start gap-3">
+              <p className="flex items-start gap-2">
                 <span className="text-[#9F836D] flex-shrink-0">◆</span>
                 <span>
                   West53 Capital Limited, trading as West53, is registered in the Republic of Ireland with Company Number <span className="font-semibold text-[#9F836D]">682114</span>.
                 </span>
               </p>
-              <p className="flex items-start gap-3">
+              <p className="flex items-start gap-2">
                 <span className="text-[#9F836D] flex-shrink-0">◆</span>
                 <span>
                   West53 Advisory Services Limited is registered in the Republic of Ireland with Company Number <span className="font-semibold text-[#9F836D]">735711</span>.
                 </span>
               </p>
-              <p className="flex items-start gap-3">
+              <p className="flex items-start gap-2">
                 <span className="text-[#9F836D] flex-shrink-0">◆</span>
                 <span>
                   West53 Capital Limited is authorized under AIFMD by Central Bank of Ireland with registration number <span className="font-semibold text-[#9F836D]">C144669</span>.
@@ -86,7 +86,6 @@ export function Footer() {
           <div className="lg:col-span-5">
             <div className="grid grid-cols-2 gap-8 sm:gap-16">
               
-              {/* Company Links */}
               <motion.div
                 initial={{ y: 100, opacity: 0 }}
                 animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
@@ -109,7 +108,6 @@ export function Footer() {
                 </ul>
               </motion.div>
 
-              {/* Legal Links */}
               <motion.div 
                 initial={{ y: 100, opacity: 0 }}
                 animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
@@ -131,7 +129,6 @@ export function Footer() {
               </motion.div>
             </div>
 
-            {/* Copyright */}
             <motion.div
               className="mt-12 pt-8 border-t border-gray-700"
               initial={{ opacity: 0, y: 20 }}
