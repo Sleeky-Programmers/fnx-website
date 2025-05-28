@@ -3,14 +3,40 @@
 import Image from 'next/image';
 import { motion } from "framer-motion";
 
+const overlayVariant = {
+  hidden: { scale: 1.1, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: { duration: 1.2, ease: "easeOut" }
+  }
+};
+
+const contentVariant = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+};
+
+const staggerParent = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.2 }
+  }
+};
+
 export function TeamsHero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <motion.div
-        initial={{ scale: 1.2, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.9, ease: 'easeOut' }}
+        variants={overlayVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.3 }}
         className="absolute inset-0 z-0"
       >
         <Image
@@ -23,26 +49,31 @@ export function TeamsHero() {
         />
       </motion.div>
 
-      {/* Dark overlay for text readability */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/60 z-10" />
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-20 text-center">
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-3xl mx-auto"
+      <motion.div
+        variants={staggerParent}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.3 }}
+        className="container mx-auto px-4 relative z-20 text-center"
+      >
+        <motion.h1
+          variants={contentVariant}
+          className="text-3xl md:text-3xl lg:text-3xl font-bold text-white mb-2"
         >
-          <h1 className="text-3xl md:text-3xl lg:text-3xl font-bold text-white mb-2">
-            Our Team
-          </h1>
-          <p className="text-md text-white/90">
-            Our people make our company. <br />
-            They can make yours too.
-          </p>
-        </motion.div>
-      </div>
+          Our Team
+        </motion.h1>
+        <motion.p
+          variants={contentVariant}
+          className="text-md text-white/90"
+        >
+          Our people make our company. <br />
+          They can make yours too.
+        </motion.p>
+      </motion.div>
     </section>
   );
 }

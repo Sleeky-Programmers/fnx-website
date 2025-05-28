@@ -21,29 +21,45 @@ export function TeamMemberCard({
   isReversed: boolean;
 }) {
   const [expanded, setExpanded] = useState(false);
-  const maxLength = 190;
+  const maxLength = 200;
   const showReadMore = member.bio.length > maxLength;
   const bioText = expanded
     ? member.bio
     : member.bio.slice(0, maxLength) + (showReadMore ? "..." : "");
 
+  const imageVariants = {
+    hidden: { x: isReversed ? 100 : -100, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const textVariants = {
+    hidden: { x: isReversed ? -100 : 100, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <div
-    className={`flex flex-col ${
-      isReversed ? "md:flex-row-reverse" : "md:flex-row"
-    } items-center md:items-start gap-8 md:gap-10`}
-  >
-  
+      className={`flex flex-col ${
+        isReversed ? "md:flex-row-reverse" : "md:flex-row"
+      } items-center md:items-start gap-8 md:gap-10`}
+    >
       {/* Image */}
       <motion.div
-        initial={{ x: isReversed ? 100 : -100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        variants={imageVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.3 }}
         className="w-full md:w-1/2 flex justify-center"
       >
-       <div className="relative w-full h-64 sm:h-72 md:h-80 max-w-xs sm:max-w-sm md:max-w-md rounded-lg overflow-hidden shadow-md">
-
+        <div className="relative w-full h-64 sm:h-72 md:h-80 max-w-xs sm:max-w-sm md:max-w-md rounded-lg overflow-hidden shadow-md">
           <Image
             src={member.photo}
             alt={member.name}
@@ -55,13 +71,15 @@ export function TeamMemberCard({
 
       {/* Text */}
       <motion.div
-        initial={{ x: isReversed ? -100 : 100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        variants={textVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.3 }}
         className="w-full md:w-2/3 max-w-xl flex flex-col justify-center"
       >
-        <h3 className="text-2xl font-bold mb-2 text-[#161C2D]">{member.name}</h3>
+        <h3 className="text-2xl font-bold mb-2 text-[#161C2D]">
+          {member.name}
+        </h3>
         <p className="text-lg text-[#9F836D] mb-4">{member.title}</p>
         <p
           className="text-gray-700 cursor-pointer"

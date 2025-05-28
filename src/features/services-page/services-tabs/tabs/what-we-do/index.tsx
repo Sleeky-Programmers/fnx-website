@@ -37,7 +37,14 @@ export function WhatWeDoContent({ direction }: TabContentProps) {
           managers, representing clients globally.
         </p>
 
-        <div className="relative w-full max-w-5xl aspect-square flex justify-center items-center">
+        {/* Animated image container */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.3 }}
+          className="relative w-full max-w-5xl aspect-square flex justify-center items-center"
+        >
           <div className="w-[95%] h-[95%] relative">
             <Image
               src="/infogram/West53-services.png"
@@ -47,7 +54,7 @@ export function WhatWeDoContent({ direction }: TabContentProps) {
               priority
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );
