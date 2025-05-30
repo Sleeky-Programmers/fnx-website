@@ -27,30 +27,28 @@ export function ServicesTabs() {
     setSelectedTab(value);
   };
 
- const swipeHandlers = useSwipeable({
-  onSwipedLeft: () => {
-    if (currentIndex < TAB_ORDER.length - 1) {
-      const next = TAB_ORDER[currentIndex + 1];
-      handleTabChange(next);
-    }
-  },
-  onSwipedRight: () => {
-    if (currentIndex > 0) {
-      const prev = TAB_ORDER[currentIndex - 1];
-      handleTabChange(prev);
-    }
-  },
-  delta: 10,          
-  trackTouch: true,
-  trackMouse: true    
-});
-
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (currentIndex < TAB_ORDER.length - 1) {
+        const next = TAB_ORDER[currentIndex + 1];
+        handleTabChange(next);
+      }
+    },
+    onSwipedRight: () => {
+      if (currentIndex > 0) {
+        const prev = TAB_ORDER[currentIndex - 1];
+        handleTabChange(prev);
+      }
+    },
+    trackTouch: true,
+    trackMouse: true
+  });
 
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <Tabs value={selectedTab} onValueChange={handleTabChange} className="space-y-8">
-          {/* Tab Triggers */}
+          
           <TabsList className="w-full flex flex-row md:flex-nowrap justify-center gap-2 mb-8 border-b">
             {TAB_ORDER.map((tabKey) => (
               <TabsTrigger
@@ -76,28 +74,25 @@ export function ServicesTabs() {
             ))}
           </TabsList>
 
-        <div {...swipeHandlers} className="w-full overflow-hidden">
-  <AnimatePresence mode="wait" custom={direction}>
-    <div className="overflow-hidden">
-      {selectedTab === "what-we-do" && (
-        <TabsContent value="what-we-do" className="mt-8">
-          <WhatWeDoContent direction={direction} />
-        </TabsContent>
-      )}
-      {selectedTab === "fund-service-providers" && (
-        <TabsContent value="fund-service-providers" className="mt-8">
-          <FundServiceProvidersContent direction={direction} />
-        </TabsContent>
-      )}
-      {selectedTab === "typical-fund-structure" && (
-        <TabsContent value="typical-fund-structure" className="mt-8">
-          <TypicalFundStructureContent direction={direction} />
-        </TabsContent>
-      )}
-    </div>
-  </AnimatePresence>
-</div>
-
+          <div {...swipeHandlers}>
+            <AnimatePresence mode="wait" custom={direction}>
+              {selectedTab === "what-we-do" && (
+                <TabsContent value="what-we-do" className="mt-8">
+                  <WhatWeDoContent direction={direction} />
+                </TabsContent>
+              )}
+              {selectedTab === "fund-service-providers" && (
+                <TabsContent value="fund-service-providers" className="mt-8">
+                  <FundServiceProvidersContent direction={direction} />
+                </TabsContent>
+              )}
+              {selectedTab === "typical-fund-structure" && (
+                <TabsContent value="typical-fund-structure" className="mt-8">
+                  <TypicalFundStructureContent direction={direction} />
+                </TabsContent>
+              )}
+            </AnimatePresence>
+          </div>
         </Tabs>
       </div>
     </section>

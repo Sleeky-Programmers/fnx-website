@@ -34,7 +34,6 @@ export function Footer() {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
           
-          {/* Logo and Company Info */}
           <motion.div
             className="lg:col-span-7"
             initial={{ opacity: 0, y: 40 }}
@@ -82,7 +81,6 @@ export function Footer() {
             </Link>
           </motion.div>
 
-          {/* Navigation Links */}
           <div className="lg:col-span-5">
             <div className="grid grid-cols-2 gap-8 sm:gap-16">
               

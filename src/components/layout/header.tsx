@@ -46,7 +46,7 @@ export function Header() {
             <motion.div
               initial={{ y: -100, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <Link href="/" className="flex items-center">
                 <Image
@@ -64,7 +64,7 @@ export function Header() {
             <motion.button
               initial={{ y: -100, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
               onClick={() => setIsOpen(true)}
               className="text-white p-2 z-50 flex items-center gap-2 md:gap-3 group hover:text-md hover:text-gray-200 transition-colors"
               aria-label="Toggle Menu"

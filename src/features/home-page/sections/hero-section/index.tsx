@@ -14,7 +14,6 @@ export function HeroSection() {
       ref={sectionRef}
       className="w-full h-[100dvh] flex flex-col items-center justify-center relative overflow-hidden"
     >
-      {/* Background Image Animation */}
       <motion.div
         initial={{ scale: 1.2, opacity: 0 }}
         animate={isInView ? { scale: 1, opacity: 1 } : {}}
@@ -31,12 +30,11 @@ export function HeroSection() {
         />
       </motion.div>
 
-      {/* Dark overlay for text readability */}
+    
       <div className="absolute inset-0 bg-black/60 z-10" />
 
-      {/* Content Animation */}
       <div className="z-20 flex flex-col gap-6 items-center justify-center text-white">
-        {/* Paragraph Animation */}
+      
         <motion.p
           initial={{ y: -100, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : {}}
@@ -46,7 +44,6 @@ export function HeroSection() {
           AIFMD and Management Company Services
         </motion.p>
 
-        {/* Button Animation */}
         <motion.div
           initial={{ scale: 1.5, opacity: 0 }}
           animate={isInView ? { scale: 1, opacity: 1 } : {}}

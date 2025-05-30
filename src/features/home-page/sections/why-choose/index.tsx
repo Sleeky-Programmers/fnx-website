@@ -3,8 +3,7 @@
 import { PiHandshakeLight } from "react-icons/pi";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { CiMedal } from "react-icons/ci";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const features = [
@@ -29,43 +28,72 @@ const features = [
 ];
 
 export function WhyChooseSection() {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { margin: "-100px" });
+  const headingRef = useRef(null);
+  const headingInView = useInView(headingRef, { margin: "-100px", once: false });
 
   return (
-    <section className="py-24 bg-gray-50" ref={sectionRef}>
+    <section className="py-24 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl lg:text-3xl font-bold text-[#003241] mb-2">
+        {/* Animated Heading */}
+        <div ref={headingRef} className="text-center mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            animate={headingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+            transition={{ duration: 0.8 }}
+            className="text-2xl lg:text-3xl font-bold text-[#003241] mb-2"
+          >
             Why choose West53?
-          </h2>
-          <div className="h-1 w-16 bg-[#9F836D] mx-auto" />
-          <p className="text-lg lg:text-2xl font-medium text-[#003241] mt-4">
+          </motion.h2>
+
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={headingInView ? { scaleX: 1 } : { scaleX: 0 }}
+            transition={{ duration: 0.8 }}
+            className="h-1 w-16 bg-[#9F836D] mx-auto origin-left"
+          />
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={headingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-lg lg:text-2xl font-medium text-[#003241] mt-4"
+          >
             Decades of expertise backed by trust and innovation
-          </p>
+          </motion.p>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 flex flex-col items-start"
-            >
-              <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-[#9f836d]/20 text-[#9F836D]">
-                <feature.icon className="h-6 w-6" />
-              </div>
-              <h3 className="text-lg font-semibold text-[#003241] mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-sm text-[#003241] leading-relaxed">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
+       {/* Animated Features */}
+<div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+  {features.map((feature, index) => {
+    const ref = useRef(null);
+    const inView = useInView(ref, { margin: "-100px", once: false });
+
+    // Determine animation direction: even index slides from left, odd from right
+    const fromX = index % 2 === 0 ? -50 : 50;
+
+    return (
+      <motion.div
+        key={index}
+        ref={ref}
+        initial={{ opacity: 0, x: fromX }}
+        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: fromX }}
+        transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+        className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 flex flex-col items-start"
+      >
+        <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-[#9f836d]/20 text-[#9F836D]">
+          <feature.icon className="h-6 w-6" />
         </div>
+        <h3 className="text-lg font-semibold text-[#003241] mb-2">
+          {feature.title}
+        </h3>
+        <p className="text-sm text-[#003241] leading-relaxed">
+          {feature.description}
+        </p>
+      </motion.div>
+    );
+  })}
+</div>
+
       </div>
     </section>
   );

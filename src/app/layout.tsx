@@ -14,6 +14,7 @@ const raleway = localFont({
 });
 
 const title = 'West53 Capital';
+const longTitle = `${title} | EU-Regulated Fund Management Company | ManCo & AIFM Services`
 const description =
 	'West53 is a global innovation company delivering software development, product design, and strategies to help businesses thrive in a fast-changing world.';
 const keywords =
@@ -22,27 +23,43 @@ const url = `${process.env.BASE_URL}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
-  title: {
-    default: title,
-    template: `%s`,
-  },
+  title: longTitle,
+  description,
+  keywords,
+  robots: 'index, follow',
+  openGraph: {
+	type: 'website',
+	url,
+	title: {
+	  default: longTitle, 
+	  template: `%s | West53 Capital`,
+	},
 	description,
-	keywords,
-	robots: 'index, follow',
-	openGraph: {
-		title,
-		description,
-		siteName: 'West53',
-		images: ['/logo.png'],
-	},
-	appleWebApp: { title, capable: true, startupImage: '/logo.png' },
-	twitter: {
-		card: 'summary',
-		site: url,
-		images: '/logo.png',
-	},
-	alternates: { canonical: url },
+	siteName: 'West53 Capital',
+	images: ['/favicon.png'],
+  },
+  twitter: {
+	card: 'summary_large_image',
+	title: longTitle,
+	description,
+	site: '@west53capital',
+	images: ['/favicon.png'],
+  },
+  appleWebApp: {
+	title: longTitle,
+	capable: true,
+	startupImage: '/favicon.png',
+  },
+  alternates: {
+	canonical: url,
+  },
+  icons: {
+	icon: '/favicon.png',
+	shortcut: '/favicon.png',
+	apple: '/favicon.png',
+  },
 };
+
 
 export default function RootLayout({
 	children,
@@ -51,11 +68,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${raleway.variable} antialiased font-raleway relative text-base overflow-x-hidden overflow`}>
-				<Header />
-				{children}
-				<Footer />
-			</body>
-		</html>
+  <body className={`${raleway.variable} font-raleway antialiased text-base overflow-x-hidden`}>
+    <Header />
+    {children}
+    <Footer />
+  </body>
+</html>
+
 	);
 }
