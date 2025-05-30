@@ -5,6 +5,7 @@ import { HiOutlineLightBulb } from "react-icons/hi";
 import { CiMedal } from "react-icons/ci";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { IconType } from "react-icons"; 
 
 const features = [
   {
@@ -27,7 +28,15 @@ const features = [
   },
 ];
 
-function FeatureCard({ icon: Icon, title, description, index }: any) {
+
+interface FeatureCardProps {
+  icon: IconType;
+  title: string;
+  description: string;
+  index: number;
+}
+
+function FeatureCard({ icon: Icon, title, description, index }: FeatureCardProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { margin: "-100px", once: false });
   const fromX = index % 2 === 0 ? -50 : 50;
@@ -48,6 +57,7 @@ function FeatureCard({ icon: Icon, title, description, index }: any) {
     </motion.div>
   );
 }
+
 
 export function WhyChooseSection() {
   const headingRef = useRef(null);
