@@ -27,6 +27,28 @@ const features = [
   },
 ];
 
+function FeatureCard({ icon: Icon, title, description, index }: any) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { margin: "-100px", once: false });
+  const fromX = index % 2 === 0 ? -50 : 50;
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: fromX }}
+      animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: fromX }}
+      transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+      className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 flex flex-col items-start"
+    >
+      <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-[#9f836d]/20 text-[#9F836D]">
+        <Icon className="h-6 w-6" />
+      </div>
+      <h3 className="text-lg font-semibold text-[#003241] mb-2">{title}</h3>
+      <p className="text-sm text-[#003241] leading-relaxed">{description}</p>
+    </motion.div>
+  );
+}
+
 export function WhyChooseSection() {
   const headingRef = useRef(null);
   const headingInView = useInView(headingRef, { margin: "-100px", once: false });
@@ -62,38 +84,11 @@ export function WhyChooseSection() {
           </motion.p>
         </div>
 
-       {/* Animated Features */}
-<div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-  {features.map((feature, index) => {
-    const ref = useRef(null);
-    const inView = useInView(ref, { margin: "-100px", once: false });
-
-    // Determine animation direction: even index slides from left, odd from right
-    const fromX = index % 2 === 0 ? -50 : 50;
-
-    return (
-      <motion.div
-        key={index}
-        ref={ref}
-        initial={{ opacity: 0, x: fromX }}
-        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: fromX }}
-        transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
-        className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 flex flex-col items-start"
-      >
-        <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-[#9f836d]/20 text-[#9F836D]">
-          <feature.icon className="h-6 w-6" />
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, index) => (
+            <FeatureCard key={index} {...feature} index={index} />
+          ))}
         </div>
-        <h3 className="text-lg font-semibold text-[#003241] mb-2">
-          {feature.title}
-        </h3>
-        <p className="text-sm text-[#003241] leading-relaxed">
-          {feature.description}
-        </p>
-      </motion.div>
-    );
-  })}
-</div>
-
       </div>
     </section>
   );
