@@ -66,20 +66,42 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
       initial="enter"
       animate="center"
       exit="exit"
-      transition={{ duration: 0.3, bounce: 0.2, type: "spring" }}
+      transition={{ duration: 0.1, bounce: 0.0, type: "spring" }}
       className="flex justify-center px-4 sm:px-6 md:px-8"
     >
       <div className="flex flex-col items-center text-center mb-8 mt-5 w-full max-w-6xl">
-        {/* Title */}
-        <div className="text-center space-y-6 mt-10 md:mt-5">
-          <h2 className="text-xl sm:text-2xl font-semibold">Fund Service Providers</h2>
-          <div className="h-1 w-24 sm:w-32 bg-[#9F836D] mx-auto" />
-          <p className="text-gray-600 text-sm sm:text-base max-w-3xl mx-auto">
-            We offer our clients the opportunity to launch fund structures by leveraging all key service providers while ensuring regulatory and operational framework is met.
-          </p>
-        </div>
 
-        {/* Feature Cards with fade-in-up staggered animation */}
+<div className="text-center space-y-6 mt-10 md:mt-5">
+  <motion.h2
+    initial={{ opacity: 0, y: -20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: false }}
+    className="text-xl sm:text-2xl font-semibold"
+  >
+    Fund Service Providers
+  </motion.h2>
+  <motion.div
+    initial={{ scaleX: 0 }}
+    whileInView={{ scaleX: 1 }}
+    transition={{ duration: 0.5, delay: 0.1 }}
+    viewport={{ once: false }}
+    className="h-1 w-24 sm:w-32 bg-[#9F836D] mx-auto origin-center"
+  />
+
+
+  <motion.p
+    initial={{ opacity: 0, y: 10 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.2 }}
+    viewport={{ once: false }}
+    className="text-gray-600 text-sm sm:text-base max-w-3xl mx-auto"
+  >
+    We offer our clients the opportunity to launch fund structures by leveraging all key service providers while ensuring regulatory and operational framework is met.
+  </motion.p>
+</div>
+
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 mb-16 w-full px-4">
           {cards.map((card, index) => (
             <motion.div
@@ -99,7 +121,6 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
           ))}
         </div>
 
-        {/* Providers List with alternating slide-in */}
         <div className="bg-[#9F836D]/5 rounded-2xl w-full p-8 mb-10">
           <h3 className="text-lg font-bold text-left mb-4 text-[#003241]">Key Providers</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -119,7 +140,6 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
           </div>
         </div>
 
-        {/* Services List with alternating slide-in */}
         <div className="bg-[#9F836D]/5 rounded-2xl w-full p-8">
           <h3 className="text-lg font-bold text-left mb-4 text-[#003241]">Our Services</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
