@@ -1,11 +1,9 @@
 "use client";
 import { useState, useMemo, useRef, useEffect } from "react";
-import { useSwipeable } from "react-swipeable";
 import {
   Tabs,
   TabsList,
   TabsTrigger,
-  TabsContent
 } from "@/components/ui/tabs";
 import { WhatWeDoContent } from "./tabs/what-we-do";
 import { FundServiceProvidersContent } from "./tabs/fund-service-providers";
