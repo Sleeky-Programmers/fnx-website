@@ -72,7 +72,9 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
       transition={{ duration: 0.1, bounce: 0.0, type: "spring" }}
       className="w-full min-h-[calc(100vh-6rem)] px-4 sm:px-6 lg:px-8 py-8 sm:py-12"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-12 min-h-0 sm:min-h-[calc(100vh-6rem)]"
+>
+
         {/* Animated Title & Divider */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -117,7 +119,7 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
             </TabsList>
           </div>
 
-<div className="relative min-h-[500px] sm:min-h-[600px]">
+<div className="relative">
   <AnimatePresence mode="wait" custom={subDirection}>
     {subTabs.map((tab) => (
       <TabsContent

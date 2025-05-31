@@ -82,7 +82,7 @@ export function TeamMemberCard({
         </h3>
         <p className="text-lg text-[#9F836D] mb-4">{member.title}</p>
         <p
-          className="text-gray-700 cursor-pointer"
+          className="text-gray-700 cursor-pointer text-md"
           onClick={() => showReadMore && setExpanded(!expanded)}
         >
           {bioText}{" "}

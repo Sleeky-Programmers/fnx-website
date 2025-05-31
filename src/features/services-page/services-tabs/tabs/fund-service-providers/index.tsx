@@ -69,8 +69,8 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
       transition={{ duration: 0.1, bounce: 0.0, type: "spring" }}
       className="flex justify-center px-4 sm:px-6 md:px-8"
     >
-      <div className="flex flex-col items-center text-center mb-8 mt-5 w-full max-w-6xl">
-
+      <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center space-y-6">
+{/*  <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center space-y-6"> */}
 <div className="text-center space-y-6 mt-10 md:mt-5">
   <motion.h2
     initial={{ opacity: 0, y: -20 }}
