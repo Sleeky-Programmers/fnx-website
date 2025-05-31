@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function ServicesHero() {
   return (
-    <section className="relative h-screen flex items-center justify-center">
+    <section className="relative h-screen flex items-center justify-center overflow-x-hidden">
       {/* Background Image */}
       <motion.div
         initial={{ scale: 1.2, opacity: 0 }}

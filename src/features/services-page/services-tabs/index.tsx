@@ -1,13 +1,9 @@
 "use client";
-
-import { useState, useMemo } from "react";
-import { AnimatePresence } from "framer-motion";
-import { useSwipeable } from "react-swipeable";
+import { useState, useMemo, useRef, useEffect } from "react";
 import {
   Tabs,
   TabsList,
   TabsTrigger,
-  TabsContent
 } from "@/components/ui/tabs";
 import { WhatWeDoContent } from "./tabs/what-we-do";
 import { FundServiceProvidersContent } from "./tabs/fund-service-providers";
@@ -18,6 +14,9 @@ const TAB_ORDER = ["what-we-do", "fund-service-providers", "typical-fund-structu
 export function ServicesTabs() {
   const [selectedTab, setSelectedTab] = useState("what-we-do");
   const [direction, setDirection] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [isInitialMount, setIsInitialMount] = useState(true);
 
   const currentIndex = useMemo(() => TAB_ORDER.indexOf(selectedTab), [selectedTab]);
 
@@ -27,28 +26,27 @@ export function ServicesTabs() {
     setSelectedTab(value);
   };
 
-  const swipeHandlers = useSwipeable({
-    onSwipedLeft: () => {
-      if (currentIndex < TAB_ORDER.length - 1) {
-        const next = TAB_ORDER[currentIndex + 1];
-        handleTabChange(next);
-      }
-    },
-    onSwipedRight: () => {
-      if (currentIndex > 0) {
-        const prev = TAB_ORDER[currentIndex - 1];
-        handleTabChange(prev);
-      }
-    },
-    trackTouch: true,
-    trackMouse: true
-  });
+  const scrollToTab = (index: number) => {
+    const section = sectionRefs.current[index];
+    section?.scrollIntoView({ behavior: "smooth", inline: "start" });
+  };
+
+  useEffect(() => {
+    // Prevent auto-scroll on initial mount
+    if (isInitialMount) {
+      setIsInitialMount(false);
+      return;
+    }
+    
+    const index = TAB_ORDER.indexOf(selectedTab);
+    scrollToTab(index);
+  }, [selectedTab, isInitialMount]);
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-8 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <Tabs value={selectedTab} onValueChange={handleTabChange} className="space-y-8">
-          
+          {/* Tab Triggers */}
           <TabsList className="w-full flex flex-row md:flex-nowrap justify-center gap-2 mb-8 border-b">
             {TAB_ORDER.map((tabKey) => (
               <TabsTrigger
@@ -73,25 +71,24 @@ export function ServicesTabs() {
               </TabsTrigger>
             ))}
           </TabsList>
-
-          <div {...swipeHandlers}>
-            <AnimatePresence mode="wait" custom={direction}>
-              {selectedTab === "what-we-do" && (
-                <TabsContent value="what-we-do" className="mt-8">
-                  <WhatWeDoContent direction={direction} />
-                </TabsContent>
-              )}
-              {selectedTab === "fund-service-providers" && (
-                <TabsContent value="fund-service-providers" className="mt-8">
-                  <FundServiceProvidersContent direction={direction} />
-                </TabsContent>
-              )}
-              {selectedTab === "typical-fund-structure" && (
-                <TabsContent value="typical-fund-structure" className="mt-8">
-                  <TypicalFundStructureContent direction={direction} />
-                </TabsContent>
-              )}
-            </AnimatePresence>
+          
+          {/* Swipeable Content Area */}
+          <div
+            ref={containerRef}
+            className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory -mx-4 px-4 space-x-4"
+            style={{ scrollSnapType: "x mandatory" }}
+          >
+            {TAB_ORDER.map((tab, idx) => (
+              <div
+                key={tab}
+                ref={el => { sectionRefs.current[idx] = el; }}
+                className="min-w-full snap-start"
+              >
+                {tab === "what-we-do" && <WhatWeDoContent direction={direction} />}
+                {tab === "fund-service-providers" && <FundServiceProvidersContent direction={direction} />}
+                {tab === "typical-fund-structure" && <TypicalFundStructureContent direction={direction} />}
+              </div>
+            ))}
           </div>
         </Tabs>
       </div>

@@ -37,7 +37,7 @@ export function TeamMembers() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: false }}
-          className="text-sm sm:text-base text-gray-600 max-w-md sm:max-w-xl md:max-w-3xl mx-auto"
+          className="text-md sm:text-base text-gray-600 max-w-md sm:max-w-xl md:max-w-3xl mx-auto"
         >
           At West53, our diverse team drives innovation, delivering world-class
           solutions to help clients thrive in a fast-changing world.

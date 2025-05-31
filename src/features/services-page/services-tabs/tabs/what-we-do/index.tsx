@@ -31,6 +31,7 @@ export function WhatWeDoContent({ direction }: TabContentProps) {
     >
       <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center space-y-6">
         
+        
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +66,7 @@ export function WhatWeDoContent({ direction }: TabContentProps) {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.3 }}
-          className="relative w-full max-w-5xl aspect-square flex justify-center items-center"
+          className="relative w-full max-w-5xl aspect-square flex justify-center items-center min-h-[90vh] md:min-h-[100vh]"
         >
           <div className="w-[95%] h-[95%] relative">
             <Image

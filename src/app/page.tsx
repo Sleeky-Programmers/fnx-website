@@ -1,10 +1,10 @@
 
 
 import { GetStartedSection } from '@/components/buttons/cta-section';
-import { HeroSection } from '@/features/home-page/sections/hero-section';
-import { LogoAnimationSection } from '@/features/home-page/sections/logo-animation';
-import { WhoWeAreSection } from '@/features/home-page/sections/who-we-are';
-import { WhyChooseSection } from '@/features/home-page/sections/why-choose';
+import { HeroSection } from '@/features/home-page/hero-section';
+import { LogoAnimationSection } from '@/features/home-page/logo-animation';
+import { WhoWeAreSection } from '@/features/home-page/who-we-are';
+import { WhyChooseSection } from '@/features/home-page/why-choose';
 
 
 export default function Home() {
