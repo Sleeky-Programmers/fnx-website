@@ -102,7 +102,7 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
         >
           {/* Static Tab List */}
           <div className="sticky top-0 bg-white/80 backdrop-blur-sm py-4 z-20">
-            <TabsList className="w-full flex flex-row justify-center gap-3 border-b pb-4">
+            <TabsList className="w-full flex flex-row justify-center gap-3 pb-4">
               {subTabs.map((tab) => (
                 <TabsTrigger
                   key={tab.value}
@@ -125,7 +125,7 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
       <TabsContent
         key={tab.value}
         value={tab.value}
-        className="absolute w-full"
+        className="absolute w-full min-h-[90vh] md:min-h-[100vh] mt-100"
       >
         <motion.div
           custom={subDirection}
@@ -134,7 +134,7 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
           animate="center"
           exit="exit"
           transition={{ duration: 0.1, type: "spring", bounce: 0.0 }}
-          className="space-y-8"
+          className="space-y-8 "
         >
           {/* Animate text when in view */}
           <motion.p
@@ -142,17 +142,18 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: false, amount: 0.3 }} // Triggers every time in view
-            className="text-gray-600 text-md sm:text-lg max-w-3xl mx-auto text-center px-4"
+            className="text-gray-600 text-md sm:text-lg max-w-3xl mx-auto text-center px-4 "
           >
             {tab.description}
           </motion.p>
+<div className="gap-3 border-b bg-[#9F836D] w-screen"/>
 
           {/* Animate image when in view */}
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            viewport={{ once: false, amount: 0.3 }} // Triggers every time in view
+            viewport={{ once: false, amount: 0.3 }}
             className="relative w-full max-w-4xl mx-auto aspect-[16/9] rounded-xl overflow-hidden shadow-lg"
           >
             <Image
