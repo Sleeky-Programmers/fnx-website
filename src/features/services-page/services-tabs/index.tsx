@@ -15,10 +15,10 @@ export function ServicesTabs() {
   const [selectedTab, setSelectedTab] = useState("what-we-do");
   const [direction, setDirection] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [isInitialMount, setIsInitialMount] = useState(true);
 
   const currentIndex = useMemo(() => TAB_ORDER.indexOf(selectedTab), [selectedTab]);
+
+
 
   const handleTabChange = (value: string) => {
     const newIndex = TAB_ORDER.indexOf(value);
@@ -26,21 +26,7 @@ export function ServicesTabs() {
     setSelectedTab(value);
   };
 
-  const scrollToTab = (index: number) => {
-    const section = sectionRefs.current[index];
-    section?.scrollIntoView({ behavior: "smooth", inline: "start" });
-  };
-
-  useEffect(() => {
-    // Prevent auto-scroll on initial mount
-    if (isInitialMount) {
-      setIsInitialMount(false);
-      return;
-    }
-    
-    const index = TAB_ORDER.indexOf(selectedTab);
-    scrollToTab(index);
-  }, [selectedTab, isInitialMount]);
+ 
 
   return (
     <section className="py-8 md:py-24 bg-white">
@@ -72,16 +58,14 @@ export function ServicesTabs() {
             ))}
           </TabsList>
           
-          {/* Swipeable Content Area */}
           <div
             ref={containerRef}
             className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory -mx-4 px-4 space-x-4"
-            style={{ scrollSnapType: "x mandatory" }}
+           
           >
-            {TAB_ORDER.map((tab, idx) => (
+            {TAB_ORDER.map((tab) => (
               <div
                 key={tab}
-                ref={el => { sectionRefs.current[idx] = el; }}
                 className="min-w-full snap-start"
               >
                 {tab === "what-we-do" && <WhatWeDoContent direction={direction} />}

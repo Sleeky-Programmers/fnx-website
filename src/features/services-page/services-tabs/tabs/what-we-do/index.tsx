@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import TabHeader from "@/components/service/tab-header";
 
 interface TabContentProps {
   direction: number;
@@ -31,36 +32,11 @@ export function WhatWeDoContent({ direction }: TabContentProps) {
     >
       <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center space-y-6">
         
-        
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: false }}
-          className="text-2xl font-semibold"
-        >
-          Management Company Offering
-        </motion.h2>
-
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: false }}
-          className="h-1 w-32 bg-[#9F836D] origin-center"
-        />
-
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          viewport={{ once: false }}
-          className="text-gray-600 max-w-3xl"
-        >
-          We partner with institutional investors, investment funds and asset
-          managers, representing clients globally.
-        </motion.p>
-
+         <TabHeader 
+              title="Management Company Offering"
+              description="  We partner with institutional investors, investment funds and asset
+          managers, representing clients globally."
+            />
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
