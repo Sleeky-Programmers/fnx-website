@@ -59,15 +59,7 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
     <motion.div
       key="fund-service-providers"
       custom={direction}
-      variants={{
-        enter: (direction: number) => ({ x: direction > 0 ? 100 : -100, opacity: 0 }),
-        center: { x: 0, opacity: 1 },
-        exit: (direction: number) => ({ x: direction < 0 ? 100 : -100, opacity: 0 })
-      }}
-      initial="enter"
-      animate="center"
-      exit="exit"
-      transition={{ duration: 0.1, bounce: 0.0, type: "spring" }}
+     
       className="flex justify-center"
     >
       <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center space-y-6">

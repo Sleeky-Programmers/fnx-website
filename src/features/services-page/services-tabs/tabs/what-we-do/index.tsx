@@ -13,21 +13,7 @@ export function WhatWeDoContent({ direction }: TabContentProps) {
     <motion.div
       key="what-we-do"
       custom={direction}
-      variants={{
-        enter: (dir: number) => ({
-          x: dir > 0 ? 100 : -100,
-          opacity: 0,
-        }),
-        center: { x: 0, opacity: 1 },
-        exit: (dir: number) => ({
-          x: dir < 0 ? 100 : -100,
-          opacity: 0,
-        }),
-      }}
-      initial="enter"
-      animate="center"
-      exit="exit"
-      transition={{ duration: 0.1, bounce: 0.0, type: "spring" }}
+     
       className="flex justify-center"
     >
       <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center space-y-6">
@@ -46,7 +32,7 @@ export function WhatWeDoContent({ direction }: TabContentProps) {
         >
           <div className="w-[95%] h-[95%] relative">
             <Image
-              src="/infogram/West53-services.png"
+              src="/infogram/West53-service.png"
               alt="Management Company Offering"
               fill
               className="object-contain"

@@ -3,19 +3,24 @@
 import Image from "next/image";
 import { useState, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { MenuModal } from "./menu-modal";
 
-function AnimatedMenuIcon() {
+function AnimatedMenuIcon({ dark = false }) {
+  const colorClass = dark ? "bg-black" : "bg-white";
   return (
     <div className="flex flex-col justify-center gap-[4px] transition-all duration-300 ease-in-out group-hover:gap-[10px]">
-      <span className="w-4 h-[2px] bg-white block transition-all duration-300 ease-in-out"></span>
-      <span className="w-4 h-[2px] bg-white block transition-all duration-300 ease-in-out"></span>
+      <span className={`w-4 h-[2px] ${colorClass} block transition-all`} />
+      <span className={`w-4 h-[2px] ${colorClass} block transition-all`} />
     </div>
   );
 }
 
 export function Header() {
+  const pathname = usePathname();
+  const isLegalPage = pathname.startsWith("/legal");
+
   const [isOpen, setIsOpen] = useState(false);
   const headerRef = useRef(null);
   const isInView = useInView(headerRef, { amount: 0.2 });
@@ -50,7 +55,7 @@ export function Header() {
             >
               <Link href="/" className="flex items-center">
                 <Image
-                  src="/logo-white.png"
+                  src={isLegalPage ? "/logo-dark.png" : "/logo-white.png"}
                   alt="Logo"
                   width={120}
                   height={60}
@@ -66,11 +71,13 @@ export function Header() {
               animate={isInView ? { y: 0, opacity: 1 } : {}}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
               onClick={() => setIsOpen(true)}
-              className="text-white p-2 z-50 flex items-center gap-2 md:gap-3 group hover:text-md hover:text-gray-200 transition-colors"
+              className={`p-2 z-50 flex items-center gap-2 md:gap-3 group hover:text-md transition-colors ${
+                isLegalPage ? "text-black hover:text-gray-700" : "text-white hover:text-gray-200"
+              }`}
               aria-label="Toggle Menu"
             >
-              <span className="text-sm md:text-base font-medium ">MENU</span>
-              <AnimatedMenuIcon />
+              <span className="text-sm md:text-base font-medium">MENU</span>
+              <AnimatedMenuIcon dark={isLegalPage} />
             </motion.button>
           </div>
         </div>
