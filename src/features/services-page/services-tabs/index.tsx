@@ -17,6 +17,14 @@ const TAB_LABELS: Record<string, string> = {
   "typical-fund-structure": "Typical Fund Structure",
 };
 
+function debounce<T extends (...args: unknown[]) => void>(func: T, wait: number) {
+  let timeout: ReturnType<typeof setTimeout> | null;
+  return (...args: Parameters<T>) => {
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), wait);
+  };
+}
+
 export function ServicesTabs() {
   const [selectedTab, setSelectedTab] = useState("what-we-do");
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,29 +43,24 @@ export function ServicesTabs() {
     }
   };
 
-  function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
-    let timeout: ReturnType<typeof setTimeout> | null;
-    return (...args: Parameters<T>) => {
-      if (timeout) clearTimeout(timeout);
-      timeout = setTimeout(() => func(...args), wait);
-    };
-  }
 
-  const handleScroll = debounce(() => {
-    if (!containerRef.current) return;
+  const handleScroll = useRef(
+    debounce(() => {
+      if (!containerRef.current) return;
 
-    const scrollLeft = containerRef.current.scrollLeft;
-    const sectionWidths = sectionRefs.current.map((ref) => ref?.offsetWidth || 0);
+      const scrollLeft = containerRef.current.scrollLeft;
+      const sectionWidths = sectionRefs.current.map((ref) => ref?.offsetWidth || 0);
 
-    let total = 0;
-    for (let i = 0; i < sectionWidths.length; i++) {
-      total += sectionWidths[i];
-      if (scrollLeft < total - sectionWidths[i] / 2) {
-        setSelectedTab(TAB_ORDER[i]);
-        break;
+      let total = 0;
+      for (let i = 0; i < sectionWidths.length; i++) {
+        total += sectionWidths[i];
+        if (scrollLeft < total - sectionWidths[i] / 2) {
+          setSelectedTab(TAB_ORDER[i]);
+          break;
+        }
       }
-    }
-  }, 100);
+    }, 100)
+  ).current;
 
   useEffect(() => {
     const el = containerRef.current;
