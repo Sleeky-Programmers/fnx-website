@@ -55,7 +55,7 @@ export function Header() {
             >
               <Link href="/" className="flex items-center">
                 <Image
-                  src={isLegalPage ? "/logo-dark.png" : "/logo-white.png"}
+                  src={isLegalPage ? "/logo-white-bg.png" : "/logo-white.png"}
                   alt="Logo"
                   width={120}
                   height={60}
