@@ -54,19 +54,19 @@ export function Footer() {
               <p className="flex items-start gap-2">
                 <span className="text-[#9F836D] flex-shrink-0">◆</span>
                 <span>
-                  West53 Capital Limited, trading as West53, is registered in the Republic of Ireland with Company Number <span className="font-semibold text-[#9F836D]">682114</span>.
+                  West 53 Capital Limited, trading as West53, is registered in the Republic of Ireland with Company Number <span className="font-semibold text-[#9F836D]">682114</span>.
                 </span>
               </p>
               <p className="flex items-start gap-2">
                 <span className="text-[#9F836D] flex-shrink-0">◆</span>
                 <span>
-                  West53 Advisory Services Limited is registered in the Republic of Ireland with Company Number <span className="font-semibold text-[#9F836D]">735711</span>.
+                  West 53 Advisory Services Limited is registered in the Republic of Ireland with Company Number <span className="font-semibold text-[#9F836D]">735711</span>.
                 </span>
               </p>
               <p className="flex items-start gap-2">
                 <span className="text-[#9F836D] flex-shrink-0">◆</span>
                 <span>
-                  West53 Capital Limited is authorized under AIFMD by Central Bank of Ireland with registration number <span className="font-semibold text-[#9F836D]">C144669</span>.
+                  West 53 Capital Limited is authorized under AIFMD by Central Bank of Ireland with registration number <span className="font-semibold text-[#9F836D]">C144669</span>.
                 </span>
               </p>
             </div>

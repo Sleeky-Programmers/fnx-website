@@ -1,5 +1,6 @@
 "use client";
 
+import TabHeader from "@/components/service/tab-header";
 import { motion } from "framer-motion";
 import {
   FileText, Scale, PieChart, Building2, ScrollText, ShieldAlert,
@@ -58,48 +59,15 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
     <motion.div
       key="fund-service-providers"
       custom={direction}
-      variants={{
-        enter: (direction: number) => ({ x: direction > 0 ? 100 : -100, opacity: 0 }),
-        center: { x: 0, opacity: 1 },
-        exit: (direction: number) => ({ x: direction < 0 ? 100 : -100, opacity: 0 })
-      }}
-      initial="enter"
-      animate="center"
-      exit="exit"
-      transition={{ duration: 0.1, bounce: 0.0, type: "spring" }}
-      className="flex justify-center px-4 sm:px-6 md:px-8"
+     
+      className="flex justify-center"
     >
       <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center space-y-6">
-{/*  <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center space-y-6"> */}
-<div className="text-center space-y-6 mt-10 md:mt-5">
-  <motion.h2
-    initial={{ opacity: 0, y: -20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-    viewport={{ once: false }}
-    className="text-xl sm:text-2xl font-semibold"
-  >
-    Fund Service Providers
-  </motion.h2>
-  <motion.div
-    initial={{ scaleX: 0 }}
-    whileInView={{ scaleX: 1 }}
-    transition={{ duration: 0.5, delay: 0.1 }}
-    viewport={{ once: false }}
-    className="h-1 w-24 sm:w-32 bg-[#9F836D] mx-auto origin-center"
-  />
 
-
-  <motion.p
-    initial={{ opacity: 0, y: 10 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6, delay: 0.2 }}
-    viewport={{ once: false }}
-    className="text-gray-600 text-sm sm:text-base max-w-3xl mx-auto"
-  >
-    We offer our clients the opportunity to launch fund structures by leveraging all key service providers while ensuring regulatory and operational framework is met.
-  </motion.p>
-</div>
+ <TabHeader 
+      title="Fund Service Providers"
+      description="We offer our clients the opportunity to launch fund structures by leveraging all key service providers while ensuring regulatory and operational framework is met."
+    />
 
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 mb-16 w-full px-4">

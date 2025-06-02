@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Image from "next/image";
+import TabHeader from "@/components/service/tab-header";
 
 interface TabContentProps {
   direction: number;
@@ -70,32 +71,16 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
       animate="center"
       exit="exit"
       transition={{ duration: 0.1, bounce: 0.0, type: "spring" }}
-      className="w-full min-h-[calc(100vh-6rem)] px-4 sm:px-6 lg:px-8 py-8 sm:py-12"
+      className="flex justify-center"
     >
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-12 min-h-0 sm:min-h-[calc(100vh-6rem)]"
+     
+<div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center space-y-6"
 >
+          <TabHeader 
+                title="Typical Fund Structure"
+              />
 
-        {/* Animated Title & Divider */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: false }}
-          className="text-center space-y-4 mb-5"
-        >
-          <h2 className="text-xl sm:text-2xl font-semibold mt-5">
-            Typical Fund Structure
-          </h2>
-          <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: false }}
-            className="h-1 w-20 sm:w-28 md:w-32 bg-[#9F836D] mx-auto origin-center"
-          />
-        </motion.div>
-
-        <Tabs
+               <Tabs
           value={selectedSubTab}
           onValueChange={handleSubTabChange}
           className="w-full space-y-8"
@@ -125,7 +110,7 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
       <TabsContent
         key={tab.value}
         value={tab.value}
-        className="absolute w-full min-h-[90vh] md:min-h-[100vh] mt-100"
+        className="absolute w-full min-h-[90vh] md:min-h-[100vh]"
       >
         <motion.div
           custom={subDirection}
@@ -136,25 +121,23 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
           transition={{ duration: 0.1, type: "spring", bounce: 0.0 }}
           className="space-y-8 "
         >
-          {/* Animate text when in view */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: false, amount: 0.3 }} // Triggers every time in view
+            viewport={{ once: false, amount: 0.3 }}
             className="text-gray-600 text-md sm:text-lg max-w-3xl mx-auto text-center px-4 "
           >
             {tab.description}
           </motion.p>
 <div className="gap-3 border-b bg-[#9F836D] w-screen"/>
 
-          {/* Animate image when in view */}
           <motion.div
             initial={{ scale: 0.95, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: false, amount: 0.3 }}
-            className="relative w-full max-w-4xl mx-auto aspect-[16/9] rounded-xl overflow-hidden shadow-lg"
+            className="relative w-full max-w-4xl aspect-[16/9] rounded-xl overflow-hidden shadow-lg"
           >
             <Image
               src={tab.image}
@@ -173,6 +156,7 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
 
         </Tabs>
       </div>
+      
     </motion.div>
   );
 }
