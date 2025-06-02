@@ -137,7 +137,8 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: false, amount: 0.3 }}
-            className="relative w-full max-w-4xl aspect-[16/9] rounded-xl overflow-hidden shadow-lg"
+            className="relative w-full max-w-4xl aspect-[16/9] rounded-xl overflow-hidden flex justify-center items-center mx-auto shadow-lg"
+            style={{ minHeight: 0 }}
           >
             <Image
               src={tab.image}
