@@ -35,7 +35,15 @@ export function ServicesTabs() {
     }
   };
 
-  const handleScroll = () => {
+  function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
+    let timeout: ReturnType<typeof setTimeout> | null;
+    return (...args: Parameters<T>) => {
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), wait);
+    };
+  }
+
+  const handleScroll = debounce(() => {
     if (!containerRef.current) return;
 
     const scrollLeft = containerRef.current.scrollLeft;
@@ -49,7 +57,7 @@ export function ServicesTabs() {
         break;
       }
     }
-  };
+  }, 100);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -66,12 +74,12 @@ export function ServicesTabs() {
       <div className="container mx-auto px-4">
         <Tabs value={selectedTab} onValueChange={handleTabChange} className="space-y-8">
           {/* Tab Triggers */}
-          <TabsList className="w-full flex flex-wrap justify-center gap-2 mb-8 border-b">
+          <TabsList className="w-full flex flex-wrap justify-center gap-2 mb-5">
             {TAB_ORDER.map((tabKey) => (
               <TabsTrigger
                 key={tabKey}
                 value={tabKey}
-                className="text-sm md:text-lg h-10 mb-5 text-[#9f836d] px-4 py-2 md:px-8 md:py-4 data-[state=active]:bg-[#9F836D] data-[state=active]:text-white font-bold rounded-xl transition-colors"
+                className="text-sm md:text-lg h-10 mb-15 text-[#9f836d] px-2 py-2 md:px-8 md:py-4 data-[state=active]:bg-[#9F836D] data-[state=active]:text-white font-bold rounded-xl transition-colors "
               >
                 <span className="hidden md:inline">{TAB_LABELS[tabKey]}</span>
                 <span className="inline md:hidden">
@@ -84,6 +92,7 @@ export function ServicesTabs() {
               </TabsTrigger>
             ))}
           </TabsList>
+          <div className="gap-2 border-b bg-[#9F836D] w-screen"/>
 
           <div
             ref={containerRef}

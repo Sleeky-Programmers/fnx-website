@@ -14,7 +14,7 @@ function SfdrSection({ title, body, delay }: { title: string; body: string; dela
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.6, ease: "easeOut", delay }}
-        className="p-4 rounded-xl shadow-sm bg-gray-100/60 text-[#003241]"
+        className="p-4 rounded-xl shadow-sm bg-gray-100/60 text-[#003241] mx-5"
       >
         <h2 className="text-lg font-semibold mb-2">{title}</h2>
         <p className="whitespace-pre-line text-md">{body}</p>
@@ -28,10 +28,10 @@ export default function SfdrPage() {
 
   return (
     <section
-      className="max-w-4xl mx-auto px-4 py-16 space-y-10 mt-10 text-[#003241]"
+      className="max-w-4xl mx-auto px-4 py-16 space-y-10 mt-10 text-[#003241] text-justify"
       ref={sectionRef}
     >
-      <h1 className="text-3xl font-bold">SFDR Sustainability Disclosures</h1>
+      <h1 className="text-3xl font-bold text-[#003241] mx-5">SFDR Sustainability Disclosures</h1>
 
       {sfdrDisclosureContent.map((section, index) => (
         <SfdrSection
