@@ -2,8 +2,11 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { X, ChevronRight } from "lucide-react"; 
+import { X } from "lucide-react"; 
 import { useState } from "react"; 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+
 
 interface MenuModalProps {
   isOpen: boolean;
@@ -24,7 +27,6 @@ export function MenuModal({ isOpen, onClose }: MenuModalProps) {
     <AnimatePresence>
       {isOpen && (
         <div className="fixed inset-0 z-50">
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -33,7 +35,6 @@ export function MenuModal({ isOpen, onClose }: MenuModalProps) {
             className="absolute inset-0 bg-black/50"
           />
 
-          {/* Modal */}
           <motion.div
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -51,6 +52,7 @@ export function MenuModal({ isOpen, onClose }: MenuModalProps) {
                   aria-label="Close Menu"
                 >
                   <X className="h-6 w-6" />
+                 
                 </button>
               </div>
 
@@ -72,10 +74,8 @@ export function MenuModal({ isOpen, onClose }: MenuModalProps) {
                         {item.name}
                       </span>
 
-                      <ChevronRight className="h-5 w-5 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity ml-auto" />
+                       <FontAwesomeIcon icon={faPlay} className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity ml-2" />
                     </Link>
-
-                    {/* Animate the description open ONLY if hovered */}
                     {item.description && (
                       <AnimatePresence>
                         {hoveredId === item.id && (
