@@ -87,7 +87,7 @@ export function TeamMemberCard({
         >
           {bioText}{" "}
           {showReadMore && (
-            <span className="text-[#000000]/50">
+            <span className="text-[#9F836D]/80">
               {expanded ? "" : "Read more"}
             </span>
           )}
