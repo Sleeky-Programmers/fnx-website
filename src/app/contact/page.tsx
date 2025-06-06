@@ -1,16 +1,24 @@
-import ContactPage from "@/features/contact-page";
-import { Metadata } from "next";
+import Head from 'next/head';
 
-export const metadata: Metadata = {
-  title: 'Contact | West53 Capital',
-  description: 'Get in touch with us at West53 Capital. We are here to assist you with your inquiries and provide the support you need.',
-  keywords: 'contact, west53 capital, inquiries, support',
-};
+import ContactPage from '@/features/contact-page';
 
 export default function ValuesPage() {
-  return (
-    <main className="min-h-screen">
-     <ContactPage />
-    </main>
-  );
+	return (
+		<>
+			<Head>
+				<title>Contact | West53 Capital</title>
+				<meta
+					name="description"
+					content="Get in touch with us at West53 Capital. We are here to assist you with your inquiries and provide the support you need."
+				/>
+				<meta
+					name="keywords"
+					content="contact, west53 capital, inquiries, support"
+				/>
+			</Head>
+			<main className="min-h-screen">
+				<ContactPage />
+			</main>
+		</>
+	);
 }
