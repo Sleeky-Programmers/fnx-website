@@ -26,6 +26,7 @@
 		"react-swipeable": "^7.0.2",
 		"react-tabs-scrollable": "^2.0.8",
 		"tailwind-merge": "^2.6.0",
+		"tailwind-scrollbar-hide": "^4.0.0",
 		"tailwindcss-animate": "^1.0.7"
 	},
 	"devDependencies": {
