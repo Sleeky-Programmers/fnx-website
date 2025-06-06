@@ -13,24 +13,22 @@ export function WhatWeDoContent({ direction }: TabContentProps) {
     <motion.div
       key="what-we-do"
       custom={direction}
-     
-      className="flex justify-center"
+      className="flex justify-center min-h-screen"
     >
-      <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center space-y-6">
-        
-         <TabHeader 
-              title="Management Company Offering"
-              description="  We partner with institutional investors, investment funds and asset
+      <div className="w-full max-w-[1600px] mx-auto flex flex-col items-center text-center space-y-6 px-2 md:px-6">
+        <TabHeader
+          title="Management Company Offering"
+          description="  We partner with institutional investors, investment funds and asset
           managers, representing clients globally."
-            />
+        />
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.3 }}
-          className="relative w-full max-w-5xl aspect-square flex justify-center items-center min-h-[90vh] md:min-h-[100vh]"
+          className="relative w-full aspect-[16/9] flex justify-center items-center min-h-[60vh] md:min-h-[70vh]"
         >
-          <div className="w-[95%] h-[95%] relative">
+          <div className="w-full h-full relative">
             <Image
               src="/infogram/West53-service.png"
               alt="Management Company Offering"

@@ -99,13 +99,13 @@ export function ServicesTabs() {
 
           <div
             ref={containerRef}
-            className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory -mx-4 px-4 space-x-4 scrollbar-hide"
+            className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory -mx-4 px-4 space-x-4 scrollbar-hide overflow-y-hidden"
           >
             {TAB_ORDER.map((tab, index) => (
               <div
                 key={tab}
                 ref={(el) => { sectionRefs.current[index] = el; }}
-                className="min-w-full snap-start"
+                className="min-w-full snap-start justify-center"
               >
                 {tab === "what-we-do" && <WhatWeDoContent direction={1} />}
                 {tab === "fund-service-providers" && <FundServiceProvidersContent direction={1} />}
@@ -118,3 +118,4 @@ export function ServicesTabs() {
     </section>
   );
 }
+
