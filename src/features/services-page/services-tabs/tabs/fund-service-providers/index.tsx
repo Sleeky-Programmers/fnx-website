@@ -71,8 +71,15 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
         </div>
 
         {/* Scrollable Content Container */}
-        <div className="w-full h-[60vh] sm:h-[90vh] md:h-[70vh] overflow-y-auto px-4 scrollbar-thin scrollbar-track-transparent">
-        
+        <div
+          className="
+            w-full
+            h-[100vh] sm:h-[90vh] md:h-auto
+            overflow-y-auto md:overflow-visible
+            px-4
+            scrollbar-thin scrollbar-track-transparent
+          "
+        >
           <div className="space-y-6 pb-6">
             {/* Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6">
