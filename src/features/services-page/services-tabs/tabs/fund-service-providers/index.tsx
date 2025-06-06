@@ -71,11 +71,18 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
         </div>
 
         {/* Scrollable Content Container */}
-        <div className="w-full h-[60vh] sm:h-[90vh] md:h-[70vh] overflow-y-auto px-4 scrollbar-thin scrollbar-track-transparent">
-        
+        <div
+          className="
+            w-full
+            h-[70vh] sm:h-[40vh] md:h-auto
+            overflow-y-auto md:overflow-visible
+            px-4
+            scrollbar-thin scrollbar-track-transparent
+          "
+        >
           <div className="space-y-6 pb-6">
             {/* Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 mt-5">
           {cards.map((card, index) => (
             <motion.div
               key={index}
@@ -87,9 +94,9 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
             >
               <div className="flex items-start gap-4 mb-4">
                 <card.icon className="h-6 w-6 text-[#9F836D]" />
-                <h4 className="text-lg font-semibold text-[#003241]">{card.title}</h4>
+                <h4 className="text-sm sm:text-lg font-semibold text-[#003241]">{card.title}</h4>
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed">{card.description}</p>
+              <p className="text-gray-600 text-xs md:text-sm leading-relaxed">{card.description}</p>
             </motion.div>
           ))}
             </div>

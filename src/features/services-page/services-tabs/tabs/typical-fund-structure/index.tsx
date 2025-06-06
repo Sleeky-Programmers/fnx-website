@@ -110,7 +110,7 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
       <TabsContent
         key={tab.value}
         value={tab.value}
-        className="absolute w-full min-h-[80vh] md:min-h-[100vh]"
+        className="absolute w-full min-h-[100vh] md:min-h-[100vh]"
       >
         <motion.div
           custom={subDirection}
@@ -126,7 +126,8 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: false, amount: 0.3 }}
-            className="text-gray-600 text-md sm:text-lg max-w-3xl mx-auto text-center px-4 "
+            className="text-gray-600 text-sm
+             sm:text-lg max-w-3xl mx-auto text-center px-4 "
           >
             {tab.description}
           </motion.p>
