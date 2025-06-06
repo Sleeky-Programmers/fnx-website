@@ -59,18 +59,23 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
     <motion.div
       key="fund-service-providers"
       custom={direction}
-     
       className="flex justify-center"
     >
-      <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center space-y-6">
+      <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center">
+        {/* Header - Fixed at top */}
+        <div className="w-full px-4 pb-4">
+          <TabHeader 
+            title="Fund Service Providers"
+            description="We offer our clients the opportunity to launch fund structures by leveraging all key service providers while ensuring regulatory and operational framework is met."
+          />
+        </div>
 
- <TabHeader 
-      title="Fund Service Providers"
-      description="We offer our clients the opportunity to launch fund structures by leveraging all key service providers while ensuring regulatory and operational framework is met."
-    />
-
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-10 mb-16 w-full px-4">
+        {/* Scrollable Content Container */}
+        <div className="w-full h-[60vh] sm:h-[90vh] md:h-[70vh] overflow-y-auto px-4 scrollbar-thin scrollbar-track-transparent">
+        
+          <div className="space-y-6 pb-6">
+            {/* Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6">
           {cards.map((card, index) => (
             <motion.div
               key={index}
@@ -87,43 +92,48 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
               <p className="text-gray-600 text-sm leading-relaxed">{card.description}</p>
             </motion.div>
           ))}
-        </div>
+            </div>
 
-        <div className="bg-[#9F836D]/5 rounded-2xl w-full p-8 mb-10">
-          <h3 className="text-lg font-bold text-left mb-4 text-[#003241]">Key Providers</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {providers.map((provider, index) => (
-              <motion.div
-                key={index}
-                initial={{ x: index % 2 === 0 ? -50 : 50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.05 }}
-                viewport={{ once: false, amount: 0.2 }}
-                className="flex items-center gap-3"
-              >
-                <provider.icon className="h-5 w-5 text-[#9F836D]" />
-                <span className="text-xs font-semibold text-[#003241]">{provider.label}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+            {/* Key Providers Section */}
+            <div className="bg-[#9F836D]/5 rounded-2xl w-full p-4 md:p-6">
+              <h3 className="text-base md:text-lg font-bold text-left mb-4 text-[#003241]">Key Providers</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                {providers.map((provider, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ x: index % 2 === 0 ? -30 : 30, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.03 }}
+                    viewport={{ once: false, amount: 0.2 }}
+                    className="flex items-center gap-3"
+                  >
+                    <provider.icon className="h-4 w-4 text-[#9F836D] flex-shrink-0" />
+                    <span className="text-xs md:text-sm font-semibold text-[#003241]">{provider.label}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
 
-        <div className="bg-[#9F836D]/5 rounded-2xl w-full p-8">
-          <h3 className="text-lg font-bold text-left mb-4 text-[#003241]">Our Services</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ x: index % 2 === 0 ? 50 : -50, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.05 }}
-                viewport={{ once: false, amount: 0.2 }}
-                className="flex items-center gap-3"
-              >
-                <service.icon className="h-5 w-5 text-[#9F836D]" />
-                <span className="text-xs font-semibold text-[#003241]">{service.label}</span>
-              </motion.div>
-            ))}
+            {/* Our Services Section */}
+            <div className="bg-[#9F836D]/5 rounded-2xl w-full p-4 md:p-6">
+              <h3 className="text-base md:text-lg font-bold text-left mb-4 text-[#003241]">Our Services</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                {services.map((service, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ x: index % 2 === 0 ? 30 : -30, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.03 }}
+                    viewport={{ once: false, amount: 0.2 }}
+                    className="flex items-center gap-3"
+                  >
+                    <service.icon className="h-4 w-4 text-[#9F836D] flex-shrink-0" />
+                    <span className="text-xs md:text-sm font-semibold text-[#003241]">{service.label}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

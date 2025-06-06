@@ -110,7 +110,7 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
       <TabsContent
         key={tab.value}
         value={tab.value}
-        className="absolute w-full min-h-[90vh] md:min-h-[100vh]"
+        className="absolute w-full min-h-[80vh] md:min-h-[100vh]"
       >
         <motion.div
           custom={subDirection}
