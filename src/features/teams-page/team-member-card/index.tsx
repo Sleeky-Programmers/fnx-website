@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
@@ -22,10 +21,17 @@ export function TeamMemberCard({
 }) {
   const [expanded, setExpanded] = useState(false);
   const maxLength = 200;
-  const showReadMore = member.bio.length > maxLength;
+  
+  // Clean the bio text by removing extra whitespace and line breaks
+  const cleanBio = member.bio
+    .replace(/\s+/g, ' ') // Replace multiple whitespace/newlines with single space
+    .replace(/\n/g, ' ')  // Replace any remaining newlines with space
+    .trim();              // Remove leading/trailing whitespace
+  
+  const showReadMore = cleanBio.length > maxLength;
   const bioText = expanded
-    ? member.bio
-    : member.bio.slice(0, maxLength) + (showReadMore ? "..." : "");
+    ? cleanBio
+    : cleanBio.slice(0, maxLength) + (showReadMore ? "..." : "");
 
   const imageVariants = {
     hidden: { x: isReversed ? 100 : -100, opacity: 0 },
@@ -76,13 +82,20 @@ export function TeamMemberCard({
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
         className="w-full md:w-2/3 max-w-xl flex flex-col justify-center"
+        style={{ minWidth: '0' }}
       >
-        <h3 className="text-2xl font-bold mb-2 text-[#161C2D]">
+        <h3 className="text-2xl font-bold mb-0.5 text-[#161C2D]">
           {member.name}
         </h3>
-        <p className="text-lg text-[#9F836D] mb-4">{member.title}</p>
+        <p className="text-lg text-[#9F836D] mb-2">{member.title}</p>
         <p
-          className="text-gray-700 cursor-pointer text-md text-justify"
+          className="text-gray-700 cursor-pointer text-md leading-tight"
+          style={{ 
+            lineHeight: '1.4',
+            wordSpacing: 'normal',
+            letterSpacing: 'normal',
+            textAlign: 'left'
+          }}
           onClick={() => showReadMore && setExpanded(!expanded)}
         >
           {bioText}{" "}
@@ -92,7 +105,6 @@ export function TeamMemberCard({
             </span>
           )}
         </p>
-
         {member.linkedin && (
           <a
             href={member.linkedin}
