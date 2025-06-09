@@ -30,6 +30,7 @@ export function ServicesTabs() {
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+
   const handleTabChange = (value: string) => {
     const index = TAB_ORDER.indexOf(value);
     setSelectedTab(value);
@@ -41,6 +42,7 @@ export function ServicesTabs() {
       });
     }
   };
+
 
   const handleScroll = useRef(
     debounce(() => {
@@ -72,15 +74,15 @@ export function ServicesTabs() {
 
   return (
     <section className="py-8 md:py-24 bg-white">
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="container mx-auto px-4">
         <Tabs value={selectedTab} onValueChange={handleTabChange} className="space-y-8">
           {/* Tab Triggers */}
-          <TabsList className="w-full flex flex-wrap justify-center gap-2 mb-8 bg-transparent">
+          <TabsList className="w-full flex flex-wrap justify-center gap-2 mb-5">
             {TAB_ORDER.map((tabKey) => (
               <TabsTrigger
                 key={tabKey}
                 value={tabKey}
-                className="text-xs sm:text-sm md:text-base lg:text-lg h-10 sm:h-12 text-[#9f836d] px-3 sm:px-4 md:px-6 lg:px-8 py-2 md:py-4 data-[state=active]:bg-[#9F836D] data-[state=active]:text-white font-bold rounded-xl transition-colors duration-300 hover:bg-[#9F836D]/10 flex-shrink-0"
+                className="text-sm md:text-lg h-10 mb-15 text-[#9f836d] px-2 py-2 md:px-8 md:py-4 data-[state=active]:bg-[#9F836D] data-[state=active]:text-white font-bold rounded-xl transition-colors "
               >
                 <span className="hidden md:inline">{TAB_LABELS[tabKey]}</span>
                 <span className="inline md:hidden">
@@ -93,20 +95,17 @@ export function ServicesTabs() {
               </TabsTrigger>
             ))}
           </TabsList>
-          
-          {/* Divider */}
-          <div className="h-1 bg-[#9F836D] w-full max-w-6xl mx-auto rounded-full"/>
+          <div className="gap-2 border-b bg-[#9F836D] w-screen"/>
 
-          {/* Content Container */}
           <div
             ref={containerRef}
-            className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide overflow-y-hidden"
+            className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory -mx-4 px-4 space-x-4 scrollbar-hide overflow-y-hidden"
           >
             {TAB_ORDER.map((tab, index) => (
               <div
                 key={tab}
                 ref={(el) => { sectionRefs.current[index] = el; }}
-                className="min-w-full snap-start flex justify-center"
+                className="min-w-full snap-start justify-center"
               >
                 {tab === "what-we-do" && <WhatWeDoContent direction={1} />}
                 {tab === "fund-service-providers" && <FundServiceProvidersContent direction={1} />}
@@ -119,3 +118,4 @@ export function ServicesTabs() {
     </section>
   );
 }
+
