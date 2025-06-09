@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -36,29 +38,20 @@ const subTabs = [
 ];
 
 const slideVariants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? 100 : -100,
-    opacity: 0,
-  }),
-  center: {
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => ({
-    x: direction < 0 ? 100 : -100,
-    opacity: 0,
-  }),
+  enter: (dir: number) => ({ x: dir > 0 ? 100 : -100, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (dir: number) => ({ x: dir < 0 ? 100 : -100, opacity: 0 }),
 };
 
 export function TypicalFundStructureContent({ direction }: TabContentProps) {
-  const [selectedSubTab, setSelectedSubTab] = useState("icav-multiple");
+  const [selectedSubTab, setSelectedSubTab] = useState(subTabs[0].value);
   const [subDirection, setSubDirection] = useState(0);
 
   const handleSubTabChange = (value: string) => {
-    const tabOrder = subTabs.map(t => t.value);
-    const oldIndex = tabOrder.indexOf(selectedSubTab);
-    const newIndex = tabOrder.indexOf(value);
-    setSubDirection(newIndex > oldIndex ? 1 : -1);
+    const order = subTabs.map((t) => t.value);
+    const oldIdx = order.indexOf(selectedSubTab);
+    const newIdx = order.indexOf(value);
+    setSubDirection(newIdx > oldIdx ? 1 : -1);
     setSelectedSubTab(value);
   };
 
@@ -70,99 +63,96 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
       initial="enter"
       animate="center"
       exit="exit"
-      transition={{ duration: 0.1, bounce: 0.0, type: "spring" }}
-      className="flex justify-center"
+      transition={{ duration: 0.1, type: "spring", bounce: 0 }}
+      className="flex justify-center w-full overflow-hidden"
     >
-     
-<div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center space-y-6"
->
-          <TabHeader 
-                title="Typical Fund Structure"
-              />
+      <div className="w-full max-w-6xl mx-auto flex flex-col items-center text-center px-4">
+        <TabHeader title="Typical Fund Structure" />
 
-               <Tabs
+        <Tabs
           value={selectedSubTab}
           onValueChange={handleSubTabChange}
-          className="w-full space-y-8"
+          className="w-full space-y-6 mt-6"
         >
-          {/* Static Tab List */}
-          <div className="sticky top-0 bg-white/80 backdrop-blur-sm py-4 z-20">
-            <TabsList className="w-full flex flex-row justify-center gap-3 pb-4">
+          {/* Tab Triggers */}
+          <div className="sticky top-0 bg-white/90 backdrop-blur-sm py-4 z-20 -mx-4 px-4">
+            <TabsList className="w-full flex justify-center gap-2 sm:gap-3">
               {subTabs.map((tab) => (
                 <TabsTrigger
                   key={tab.value}
                   value={tab.value}
-                  className="px-3 py-2.5 text-xs sm:text-sm lg:text-base text-[#9f836d] 
-                    rounded-xl transition-all duration-200 hover:bg-[#9F836D]/10
+                  className="px-2 sm:px-3 py-2 sm:py-2.5 text-xs sm:text-sm lg:text-base text-[#9f836d]
+                    rounded-lg sm:rounded-xl transition-all duration-200 hover:bg-[#9F836D]/10
                     data-[state=active]:bg-[#9F836D] data-[state=active]:text-white
-                    text-center min-h-[2.5rem] sm:min-h-[3rem] max-w-[120px] sm:max-w-none truncate"
+                    text-center min-h-[2rem] sm:min-h-[2.5rem] flex-1 sm:flex-none"
                 >
-                  <span className="block sm:hidden">{tab.shortLabel}</span>
+                  <span className="block sm:hidden leading-tight">{tab.shortLabel}</span>
                   <span className="hidden sm:block">{tab.label}</span>
                 </TabsTrigger>
               ))}
             </TabsList>
           </div>
 
-<div className="relative">
-  <AnimatePresence mode="wait" custom={subDirection}>
-    {subTabs.map((tab) => (
-      <TabsContent
-        key={tab.value}
-        value={tab.value}
-        className="absolute w-full min-h-[100vh] md:min-h-[100vh]"
-      >
-        <motion.div
-          custom={subDirection}
-          variants={slideVariants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 0.1, type: "spring", bounce: 0.0 }}
-          className="space-y-8 "
-        >
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: false, amount: 0.3 }}
-            className="text-gray-600 text-sm
-             sm:text-lg max-w-3xl mx-auto text-center px-4 "
-          >
-            {tab.description}
-          </motion.p>
-<div className="gap-3 border-b bg-[#9F836D] w-screen"/>
+          {/* Content Panes */}
+          <div className="relative min-h-[400px] sm:min-h-[500px]">
+            {subTabs.map((tab) => (
+              <TabsContent
+                key={tab.value}
+                value={tab.value}
+                className="absolute w-full top-0"
+              >
+                <AnimatePresence mode="wait" custom={subDirection}>
+                  {selectedSubTab === tab.value && (
+                    <motion.div
+                      custom={subDirection}
+                      variants={slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{ duration: 0.1, type: "spring", bounce: 0 }}
+                      className="space-y-6 sm:space-y-8"
+                    >
+                      <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        className="text-gray-600 text-sm sm:text-base lg:text-lg max-w-3xl mx-auto text-center leading-relaxed"
+                      >
+                        {tab.description}
+                      </motion.p>
 
-          <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            viewport={{ once: false, amount: 0.3 }}
-            className="relative w-full max-w-4xl rounded-xl overflow-hidden flex justify-center items-center mx-auto shadow-lg bg-white"
-            style={{
-              minHeight: "220px",
-              height: "auto",
-              aspectRatio: "20/9",
-            }}
-          >
-            <Image
-              src={tab.image}
-              alt={tab.label}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-              className="object-contain"
-              priority
-            />
-          </motion.div>
-        </motion.div>
-      </TabsContent>
-    ))}
-  </AnimatePresence>
-</div>
+                      <div className="h-1 bg-[#9F836D] w-full max-w-4xl mx-auto rounded-full" />
 
+                      <motion.div
+                        initial={{ scale: 0.95, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.7, delay: 0.2 }}
+                        viewport={{ once: false, amount: 0.3 }}
+                        className="relative w-full max-w-5xl rounded-xl overflow-hidden flex justify-center items-center mx-auto shadow-lg bg-white"
+                        style={{
+                          minHeight: "300px",
+                          aspectRatio: "16/10",
+                        }}
+                      >
+                        <Image
+                          src={tab.image}
+                          alt={tab.label}
+                          width={1000}
+                          height={625}
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 85vw, 1000px"
+                          className="object-contain w-full h-full"
+                          priority
+                        />
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </TabsContent>
+            ))}
+          </div>
         </Tabs>
       </div>
-      
     </motion.div>
   );
 }
