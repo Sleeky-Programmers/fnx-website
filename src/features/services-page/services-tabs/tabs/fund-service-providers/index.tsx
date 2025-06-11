@@ -103,7 +103,7 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
 
             {/* Key Providers Section */}
             <div className="bg-[#9F836D]/5 rounded-2xl w-full p-4 md:p-6">
-              <h3 className="text-base md:text-lg font-bold text-left mb-4 text-[#003241]">Key Providers</h3>
+              <h3 className="text-base md:text-lg font-bold text-left mb-4 text-[#003241]">Primary Fund Service Providers</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {providers.map((provider, index) => (
                   <motion.div
@@ -123,7 +123,6 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
 
             {/* Our Services Section */}
             <div className="bg-[#9F836D]/5 rounded-2xl w-full p-4 md:p-6">
-              <h3 className="text-base md:text-lg font-bold text-left mb-4 text-[#003241]">Our Services</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {services.map((service, index) => (
                   <motion.div
