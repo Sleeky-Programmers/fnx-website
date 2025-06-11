@@ -129,21 +129,22 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
                         whileInView={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 0.7, delay: 0.2 }}
                         viewport={{ once: false, amount: 0.3 }}
-                        className="relative w-full max-w-5xl rounded-xl overflow-hidden flex justify-center items-center mx-auto shadow-lg bg-white"
+                        className="relative w-full max-w-5xl rounded-xl overflow-hidden flex justify-center items-center mx-auto shadow-lg bg-white p-4"
                         style={{
-                          minHeight: "300px",
-                          aspectRatio: "16/10",
+                          minHeight: "400px",
                         }}
                       >
-                        <Image
-                          src={tab.image}
-                          alt={tab.label}
-                          width={1000}
-                          height={625}
-                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 85vw, 1000px"
-                          className="object-contain w-full h-full"
-                          priority
-                        />
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={tab.image}
+                            alt={tab.label}
+                            width={1000}
+                            height={700}
+                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 85vw, 1000px"
+                            className="object-contain w-full h-auto max-h-[500px]"
+                            priority
+                          />
+                        </div>
                       </motion.div>
                     </motion.div>
                   )}
