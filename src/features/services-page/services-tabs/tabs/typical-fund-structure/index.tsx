@@ -1,3 +1,5 @@
+
+
 "use client";
 
 import { useState } from "react";
@@ -13,8 +15,8 @@ interface TabContentProps {
 const subTabs = [
   {
     value: "icav-multiple",
-    label: "ICAV with Multiple Sub-Fund",
-    shortLabel: "Multiple Funds",
+    label: "Platform with Multiple Sub-Funds",
+    shortLabel: "Platform with Multiple Sub-Funds",
     description:
       "Many funds can struggle initially or later in life because they have not chosen the most appropriate structure or terms. One size does not fit all.",
     image: "/fund-structure-multiple.png",
@@ -22,7 +24,7 @@ const subTabs = [
   {
     value: "icav-single",
     label: "ICAV with Single Fund",
-    shortLabel: "Single Fund",
+    shortLabel: "ICAV with Single Fund",
     description:
       "Not every structure suits every asset class, strategy or investor base. Let us work with you and our services providers to suggest the best solution for you and your future plans.",
     image: "/fund-structure-providers.png",
@@ -30,7 +32,7 @@ const subTabs = [
   {
     value: "ilp-multiple",
     label: "ILP (with Multiple Sub-Funds)",
-    shortLabel: "ILP Funds",
+    shortLabel: "ILP (with Multiple Sub-Funds)",
     description:
       "Not every structure suits every asset class, strategy or investor base. Let us work with you and our services providers to suggest the best solution for you and your future plans.",
     image: "/fund-structure-typical.png",
@@ -76,18 +78,19 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
         >
           {/* Tab Triggers */}
           <div className="sticky top-0 bg-white/90 backdrop-blur-sm py-4 z-20 -mx-4 px-4">
-            <TabsList className="w-full flex justify-center gap-2 sm:gap-3">
+            <TabsList className="w-full flex justify-center gap-1 sm:gap-3 flex-wrap sm:flex-nowrap">
               {subTabs.map((tab) => (
                 <TabsTrigger
                   key={tab.value}
                   value={tab.value}
-                  className="px-2 sm:px-3 py-2 sm:py-2.5 text-xs sm:text-sm lg:text-base text-[#9f836d]
-                    rounded-lg sm:rounded-xl transition-all duration-200 hover:bg-[#9F836D]/10
+                  className="px-2 sm:px-3 py-3 sm:py-2.5 text-[10px] sm:text-sm lg:text-base text-[#9f836d]
+                    rounded-xl sm:rounded-xl transition-all duration-200 hover:bg-[#9F836D]/10
                     data-[state=active]:bg-[#9F836D] data-[state=active]:text-white
-                    text-center min-h-[2rem] sm:min-h-[2.5rem] flex-1 sm:flex-none"
+                    text-center min-h-[3rem] sm:min-h-[2.5rem] flex-1 sm:flex-none
+                    leading-[1.1] break-words whitespace-normal
+                    flex items-center justify-center"
                 >
-                  <span className="block sm:hidden leading-tight">{tab.shortLabel}</span>
-                  <span className="hidden sm:block">{tab.label}</span>
+                  <span className="text-center leading-[1.1] px-1">{tab.shortLabel}</span>
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -129,21 +132,22 @@ export function TypicalFundStructureContent({ direction }: TabContentProps) {
                         whileInView={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 0.7, delay: 0.2 }}
                         viewport={{ once: false, amount: 0.3 }}
-                        className="relative w-full max-w-5xl rounded-xl overflow-hidden flex justify-center items-center mx-auto shadow-lg bg-white"
+                        className="relative w-full max-w-5xl rounded-xl overflow-hidden flex justify-center items-center mx-auto shadow-lg bg-white p-4"
                         style={{
-                          minHeight: "300px",
-                          aspectRatio: "16/10",
+                          minHeight: "400px",
                         }}
                       >
-                        <Image
-                          src={tab.image}
-                          alt={tab.label}
-                          width={1000}
-                          height={625}
-                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 85vw, 1000px"
-                          className="object-contain w-full h-full"
-                          priority
-                        />
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={tab.image}
+                            alt={tab.label}
+                            width={1000}
+                            height={700}
+                            sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 85vw, 1000px"
+                            className="object-contain w-full h-auto max-h-[500px]"
+                            priority
+                          />
+                        </div>
                       </motion.div>
                     </motion.div>
                   )}
