@@ -71,31 +71,24 @@ export function ServicesTabs() {
   }, []);
 
   return (
-    <section className="py-8 md:py-24 bg-white">
+    <section className="pt-20 pb-12 md:pt-24 md:pb-32 bg-white">
       <div className="container mx-auto px-4 max-w-7xl">
-        <Tabs value={selectedTab} onValueChange={handleTabChange} className="space-y-8">
+        <Tabs value={selectedTab} onValueChange={handleTabChange} className="space-y-12 sm:space-y-16">
           {/* Tab Triggers */}
-          <TabsList className="w-full flex flex-wrap justify-center gap-2 mb-8 bg-transparent">
+          <TabsList className="w-full flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 mb-16 sm:mb-8 bg-transparent">
             {TAB_ORDER.map((tabKey) => (
               <TabsTrigger
                 key={tabKey}
                 value={tabKey}
-                className="text-xs sm:text-sm md:text-base lg:text-lg h-10 sm:h-12 text-[#9f836d] px-3 sm:px-4 md:px-6 lg:px-8 py-2 md:py-4 data-[state=active]:bg-[#9F836D] data-[state=active]:text-white font-bold rounded-xl transition-colors duration-300 hover:bg-[#9F836D]/10 flex-shrink-0"
+                className="text-sm sm:text-base md:text-lg lg:text-xl h-12 sm:h-14 text-[#9f836d] px-4 sm:px-6 md:px-8 lg:px-10 py-3 sm:py-4 data-[state=active]:bg-[#9F836D] data-[state=active]:text-white font-bold rounded-xl transition-colors duration-300 hover:bg-[#9F836D]/10 flex-shrink-0 w-full sm:w-auto text-center min-w-0"
               >
-                <span className="hidden md:inline">{TAB_LABELS[tabKey]}</span>
-                <span className="inline md:hidden">
-                  {{
-                    "what-we-do": "Overview",
-                    "fund-service-providers": "Providers",
-                    "typical-fund-structure": "Structure",
-                  }[tabKey]}
-                </span>
+                <span className="truncate">{TAB_LABELS[tabKey]}</span>
               </TabsTrigger>
             ))}
           </TabsList>
           
           {/* Divider */}
-          <div className="h-1 bg-[#9F836D] w-full max-w-6xl mx-auto rounded-full"/>
+          <div className="h-1 bg-[#9F836D] w-full max-w-6xl mx-auto rounded-full mb-32 sm:mb-0"/>
 
           {/* Content Container */}
           <div
