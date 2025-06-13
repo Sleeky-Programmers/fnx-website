@@ -19,7 +19,7 @@ const subTabs = [
     shortLabel: "Platform with Multiple Sub-Funds",
     description:
       "Many funds can struggle initially or later in life because they have not chosen the most appropriate structure or terms. One size does not fit all.",
-    image: "/fund-structure-multiple.png",
+    image: "/Platform-with-Multiple-Sub-Funds.png",
   },
   {
     value: "icav-single",
