@@ -68,7 +68,7 @@ export function ServicesTabs() {
     return () => {
       el.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
   return (
     <section className="pt-20 pb-12 md:pt-24 md:pb-32 bg-white">

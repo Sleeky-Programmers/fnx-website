@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { useState } from "react";
@@ -23,11 +21,11 @@ const subTabs = [
   },
   {
     value: "icav-single",
-    label: "ICAV with Single Fund",
-    shortLabel: "ICAV with Single Fund",
+    label: "Stand Alone Fund",
+    shortLabel: "Stand Alone Fund",
     description:
       "Not every structure suits every asset class, strategy or investor base. Let us work with you and our services providers to suggest the best solution for you and your future plans.",
-    image: "/fund-structure-providers.png",
+    image: "/stand-alone-fund.png",
   },
   {
     value: "ilp-multiple",
