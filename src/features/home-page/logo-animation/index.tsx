@@ -1,5 +1,4 @@
 "use client";
-
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
@@ -13,7 +12,6 @@ export function LogoAnimationSection() {
   return (
     <section className="relative min-h-[90vh] md:min-h-[100vh] flex items-center justify-center bg-white overflow-hidden">
       <div className="relative w-full max-w-7xl mx-auto px-4 md:px-8">
-        {/* Logo fade out on scroll into view */}
         <motion.div
           ref={logoRef}
           initial={{ opacity: 1 }}
@@ -35,8 +33,6 @@ export function LogoAnimationSection() {
             />
           </div>
         </motion.div>
-
-
         <motion.div
           ref={diagramRef}
           initial={{ scale: 0.8, opacity: 0 }}
