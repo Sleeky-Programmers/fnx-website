@@ -3,8 +3,41 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaPhoneAlt, FaEnvelope, FaGlobe } from "react-icons/fa";
+import { useState } from "react";
 
 export default function ContactPage() {
+  const [status, setStatus] = useState("idle");
+
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setStatus("loading");
+
+  const formData = new FormData(e.target as HTMLFormElement);
+
+  const endpoint =
+    process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/mgvzzbrb";
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
+      setStatus("success");
+      (e.target as HTMLFormElement).reset();
+    } else {
+      setStatus("error");
+    }
+  } catch (err) {
+    console.error("Form submission failed:", err);
+    setStatus("error");
+  }
+};
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 overflow-hidden">
       {/* Full-page Background Image */}
@@ -82,11 +115,13 @@ export default function ContactPage() {
   viewport={{ once: false, amount: 0.3 }}
   transition={{ duration: 1, delay: 1 }}
   className="bg-white p-6 sm:p-4 rounded-2xl shadow-md space-y-6 text-gray-700 font-bold max-w-4xl mx-auto"
+   onSubmit={handleSubmit}
 >
   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mx-4">
     <div>
       <label className="block mb-1">Email</label>
       <input
+      name="email"
         type="email"
         placeholder="Input your email"
         className="w-full p-3 rounded bg-white text-black border font-normal border-[#9F836D] focus:shadow-md focus:shadow-[#9F836D]/30 focus:outline-none focus:border-[#9F836D]"
@@ -95,15 +130,17 @@ export default function ContactPage() {
     <div>
       <label className="block mb-1">Your Full name</label>
       <input
+      name="name"
         type="text"
         placeholder="Input your full name"
         className="w-full p-3 rounded bg-white text-black border font-normal border-[#9F836D] focus:shadow-md focus:shadow-[#9F836D]/30 focus:outline-none focus:border-[#9F836D]"
       />
     </div>
     <div>
-      <label className="block mb-1">Subject</label>
+      <label  className="block mb-1">Subject</label>
       <input
         type="text"
+        name="subject"
         placeholder="Input a subject"
         className="w-full p-3 rounded bg-white text-black border font-normal border-[#9F836D] focus:shadow-md focus:shadow-[#9F836D]/30 focus:outline-none focus:border-[#9F836D]"
       />
@@ -111,6 +148,7 @@ export default function ContactPage() {
     <div>
       <label className="block mb-1">Company Website</label>
       <input
+      name="company"
         type="text"
         placeholder="Input your company website"
         className="w-full p-3 rounded bg-white text-black border font-normal border-[#9F836D] focus:shadow-md focus:shadow-[#9F836D]/30 focus:outline-none focus:border-[#9F836D]"
@@ -120,6 +158,7 @@ export default function ContactPage() {
   <div className="mx-4">
     <label className="block mb-1">Message</label>
     <textarea
+    name="message"
       rows={5}
       placeholder="Input your message here"
       className="w-full p-3 rounded bg-white text-black resize-none border font-normal border-[#9F836D] focus:shadow-md focus:shadow-[#9F836D]/30 focus:outline-none focus:border-[#9F836D]"
@@ -129,11 +168,39 @@ export default function ContactPage() {
     <button
       type="submit"
       className="bg-[#9F836D] text-white font-semibold px-10 py-2 rounded hover:bg-[#9F837D] transition"
-    >
-      Send
-    </button>
+   disabled={status === "loading"}
+            >
+              {status === "loading" ? "Sending..." : "Send"}
+            </button>
   </div>
 </motion.form>
+
+   {/* Popup */}
+        {status === "success" && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="bg-white p-8 rounded-2xl shadow-lg max-w-sm text-center"
+            >
+              <h2 className="text-2xl font-bold mb-2 text-[#9F836D]">Thank you!</h2>
+              <p className="text-gray-700 mb-4">Your message has been sent successfully.</p>
+              <button
+                onClick={() => setStatus("idle")}
+                className="bg-[#9F836D] text-white font-semibold px-6 py-2 rounded hover:bg-[#9F837D] transition"
+              >
+                Close
+              </button>
+            </motion.div>
+          </div>
+        )}
+
+        {/* Optional: error handling */}
+        {status === "error" && (
+          <div className="fixed bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded">
+            Something went wrong. Please try again.
+          </div>
+        )}
 
       </div>
     </section>
