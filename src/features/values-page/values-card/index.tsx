@@ -4,42 +4,20 @@ import { ValueCard } from "@/components/ui/value-card";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import type { Value } from "@/lib/api";
 
-const values: { title: string; description: string; variant: "light" | "dark" }[] = [
-  {
-    title: "SIMPLICITY",
-    description:
-      "We prioritize straightforward, actionable solutions. We're mindful of the time and financial implications of our advice, keeping things direct and efficient.",
-    variant: "light",
-  },
-  {
-    title: "INTEGRITY",
-    description:
-      "Our unwavering commitment to integrity means we're responsible and accountable to regulators, clients and ourselves. Transparency and honesty define our approach.",
-    variant: "dark",
-  },
-  {
-    title: "EFFICIENCY",
-    description:
-      "We're fanatical about efficiency, keeping costs low and operations effective. We optimize our services to empower clients in achieving their financial goals.",
-    variant: "dark",
-  },
-  {
-    title: "RESPECT",
-    description:
-      "We deeply respect the time, effort, and commitment of our stakeholders, particularly our clients. We honor their dedication with unwavering support and integrity.",
-    variant: "light",
-  },
-];
+interface ValuesCardsProps {
+  values: Value[];
+}
 
-export function ValuesCards() {
+export function ValuesCards({ values }: ValuesCardsProps) {
   const headerRef = useRef(null);
   const isHeaderInView = useInView(headerRef, { margin: "-100px", once: false });
 
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4">
-        
+        {/* Header */}
         <div ref={headerRef} className="text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: -40 }}
@@ -66,7 +44,7 @@ export function ValuesCards() {
           </motion.p>
         </div>
 
-        {/* Logo in Center */}
+        {/* Logo + Cards */}
         <div className="relative flex items-center justify-center">
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
@@ -85,7 +63,7 @@ export function ValuesCards() {
             </div>
           </motion.div>
 
-          {/* Animated Value Cards */}
+          {/* Dynamic Value Cards */}
           <div className="text-xs p-4 text-center grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center justify-center justify-items-center">
             {values.map((value, index) => (
               <motion.div

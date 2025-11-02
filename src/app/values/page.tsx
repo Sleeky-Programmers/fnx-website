@@ -2,8 +2,10 @@ import Head from 'next/head';
 
 import { ValuesCards } from '@/features/values-page/values-card';
 import { ValuesHero } from '@/features/values-page/values-hero';
+import { getValues } from '@/lib/api';
 
-export default function ValuesPage() {
+export default async function ValuesPage() {
+	 const values = await getValues();
 	return (
 		<>
 			<Head>
@@ -19,7 +21,7 @@ export default function ValuesPage() {
 			</Head>
 			<main className="min-h-screen">
 				<ValuesHero />
-				<ValuesCards />
+			 <ValuesCards values={values} />
 			</main>
 		</>
 	);
