@@ -3,47 +3,48 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaPhoneAlt, FaEnvelope, FaGlobe } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getContactPage } from "@/lib/api";
 
 export default function ContactPage() {
   const [status, setStatus] = useState("idle");
+  const [pageData, setPageData] = useState<any>(null);
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setStatus("loading");
+  useEffect(() => {
+    (async () => {
+      const data = await getContactPage();
+      setPageData(data);
+    })();
+  }, []);
 
-  const formData = new FormData(e.target as HTMLFormElement);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("loading");
+    const formData = new FormData(e.target as HTMLFormElement);
+    const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/mgvzzbrb";
 
-  const endpoint =
-    process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "https://formspree.io/f/mgvzzbrb";
-
-  try {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      body: formData,
-      headers: {
-        Accept: "application/json",
-      },
-    });
-
-    if (response.ok) {
-      setStatus("success");
-      (e.target as HTMLFormElement).reset();
-    } else {
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      setStatus(response.ok ? "success" : "error");
+      if (response.ok) (e.target as HTMLFormElement).reset();
+    } catch (err) {
+      console.error("Form submission failed:", err);
       setStatus("error");
     }
-  } catch (err) {
-    console.error("Form submission failed:", err);
-    setStatus("error");
-  }
-};
+  };
 
+  if (!pageData) return <div className="text-center py-20">Loading contact page...</div>;
+
+  
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 overflow-hidden">
-      {/* Full-page Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/bg-images/contact.jpg"
+          src={pageData.backgroundImage || "/bg-images/contact.jpg"}
           alt="Contact background"
           fill
           className="object-cover"
@@ -53,60 +54,43 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       </div>
 
       <div className="relative z-10 w-full max-w-6xl text-white px-4 sm:px-8">
-        {/* Heading */}
         <motion.div
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-2">Contact our West53 team</h2>
-          <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto">
-            Our team is very happy to answer your questions. <br />
-            Fill out the form and we’ll be in touch as soon as possible.
-          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">{pageData.heading}</h2>
+          {pageData.subheading && (
+            <p className="text-base sm:text-lg text-white/90 max-w-2xl mx-auto">
+              {pageData.subheading}
+            </p>
+          )}
         </motion.div>
 
         {/* Contact Info Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-16 text-center">
+       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-16 text-center">
           {[
-            {
-              icon: <FaPhoneAlt className="text-sm p-2 mb-2 h-10 w-10 rounded-full bg-white text-[#9F836D]" />,
-              title: "Call us",
-              info: "+353 1 575 6091",
-              delay: 0.2,
-            },
-            {
-              icon: (
-                <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center mb-2">
-                  <FaEnvelope className="text-[#9F836D] text-lg" />
+            { icon: <FaPhoneAlt />, title: "Call us", info: pageData.phone },
+            { icon: <FaEnvelope />, title: "Email us", info: pageData.email },
+            { icon: <FaGlobe />, title: "Visit us", info: pageData.website },
+          ]
+            .filter((item) => item.info)
+            .map(({ icon, title, info }, i) => (
+              <motion.div
+                key={i}
+                initial={{ y: 50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                className="flex flex-col items-center"
+              >
+                <div className="h-10 w-10 rounded-full bg-white flex items-center justify-center mb-2 text-[#9F836D] text-lg">
+                  {icon}
                 </div>
-              ),
-              title: "Email us",
-              info: "enquiry@west53.ie",
-              delay: 0.4,
-            },
-            {
-              icon: <FaGlobe className="text-sm p-2 mb-2 h-10 w-10 rounded-full bg-white text-[#9F836D]" />,
-              title: "Visit us",
-              info: "www.west53.ie",
-              delay: 0.6,
-            },
-          ].map(({ icon, title, info, delay }, index) => (
-            <motion.div
-              key={index}
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: false, amount: 0.3 }}
-              transition={{ duration: 0.6, delay }}
-              className="flex flex-col items-center"
-            >
-              {icon}
-              <h4 className="text-xl font-semibold mb-1">{title}</h4>
-              <p className="text-white/90">{info}</p>
-            </motion.div>
-          ))}
+                <h4 className="text-xl font-semibold mb-1">{title}</h4>
+                <p className="text-white/90">{info}</p>
+              </motion.div>
+            ))}
         </div>
 
 <motion.form
