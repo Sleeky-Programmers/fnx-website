@@ -117,3 +117,24 @@ export async function getContactPage(): Promise<ContactPageData | null> {
 
   return data;
 }
+
+export async function getDisclaimerSections(): Promise<{ title: string; body: string }[]> {
+  const apiBase = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/g, '') ?? '';
+  const res = await fetch(`${apiBase}/api/legal/disclaimer`);
+  if (!res.ok) throw new Error('Failed to fetch disclaimer content');
+  return res.json();
+}
+
+export async function getPrivacySections(): Promise<{ title: string; body: string }[]> {
+  const apiBase = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/g, '') ?? '';
+  const res = await fetch(`${apiBase}/api/legal/privacy-policy`);
+  if (!res.ok) throw new Error('Failed to fetch privacy policy content');
+  return res.json();
+}
+
+export async function getSfdrDisclosures(): Promise<{ title: string; body: string }[]> {
+  const apiBase = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/g, '') ?? '';
+  const res = await fetch(`${apiBase}/api/legal/sfdr`);
+  if (!res.ok) throw new Error('Failed to fetch SFDR content');
+  return res.json();
+}

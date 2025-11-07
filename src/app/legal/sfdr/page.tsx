@@ -1,8 +1,8 @@
 "use client";
 
-import { sfdrDisclosureContent } from "@/data/legal/sfdr-disclosure";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { getSfdrDisclosures } from "@/lib/api";
 
 function SfdrSection({ title, body, delay }: { title: string; body: string; delay: number }) {
   const ref = useRef(null);
@@ -24,16 +24,23 @@ function SfdrSection({ title, body, delay }: { title: string; body: string; dela
 }
 
 export default function SfdrPage() {
+  const [sections, setSections] = useState<{ title: string; body: string }[]>([]);
   const sectionRef = useRef(null);
+
+  useEffect(() => {
+    getSfdrDisclosures().then(setSections).catch(console.error);
+  }, []);
 
   return (
     <section
       className="max-w-4xl mx-auto px-4 py-16 space-y-10 mt-10 text-[#003241] text-justify"
       ref={sectionRef}
     >
-      <h1 className="text-3xl font-bold text-[#003241] mx-5">SFDR Sustainability Disclosures</h1>
+      <h1 className="text-3xl font-bold text-[#003241] mx-5">
+        SFDR Sustainability Disclosures
+      </h1>
 
-      {sfdrDisclosureContent.map((section, index) => (
+      {sections.map((section, index) => (
         <SfdrSection
           key={index}
           title={section.title}
