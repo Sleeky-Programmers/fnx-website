@@ -1,24 +1,25 @@
 import type { TeamMember } from '../features/teams-page/team-member-card';
-import { HomePageContent, Value, ServiceSection, FundSubTab, WhatWeDoContentType, ContactPageData } from './type';
+import { HomePageContent, Value, ServiceSection, FundSubTab, WhatWeDoContentType, ContactPageData, TeamData } from './type';
 
 
-export async function getTeamMembers(): Promise<TeamMember[]> {
+export async function getTeamData(): Promise<TeamData> {
   const apiBase = process.env.NEXT_PUBLIC_API_URL?.replace(/\/+$/g, '') ?? '';
-  const res = await fetch(`${apiBase}/api/team`);
-  if (!res.ok) throw new Error('Failed to fetch team members');
+  const res = await fetch(`${apiBase}/api/team`, { cache: 'no-store' });
+  if (!res.ok) throw new Error('Failed to fetch team data');
 
   const data = await res.json();
 
-  return data.map((m: any) => {
+  data.members = data.members.map((m: any) => {
     const photo = m.photo ?? '';
     if (photo && !/^https?:\/\//i.test(photo) && !photo.startsWith('/')) {
       m.photo = `${apiBase}/uploads/team/${photo}`;
     } else if (photo && photo.startsWith('/')) {
       m.photo = `${apiBase}${photo}`;
     }
-    return m as TeamMember;
+    return m;
   });
-  
+
+  return data;
 }
 
 export async function getHomeContent(): Promise<HomePageContent> {

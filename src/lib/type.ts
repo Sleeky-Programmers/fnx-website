@@ -1,3 +1,5 @@
+import { TeamMember } from "@/features/teams-page/team-member-card";
+
 export type HomePageContent = {
   whoWeAreTitle: string;
   whoWeAreSubheading: string;
@@ -48,4 +50,12 @@ export interface ContactPageData {
   email?: string;
   website?: string;
   backgroundImage?: string;
+}
+
+export interface TeamData {
+  content: {
+    title: string;
+    subtitle: string;
+  };
+  members: TeamMember[];
 }
