@@ -1,5 +1,4 @@
 import Head from 'next/head';
-
 import { TeamMembers } from '@/features/teams-page/team-members';
 import { TeamsHero } from '@/features/teams-page/teams-hero';
 

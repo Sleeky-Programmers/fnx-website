@@ -1,8 +1,8 @@
 "use client";
 
-import { disclaimerContent } from "@/data/legal/disclaimer";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { getDisclaimerSections } from "@/lib/api";
 
 function DisclaimerSection({ title, body, delay }: { title: string; body: string; delay: number }) {
   const ref = useRef(null);
@@ -17,20 +17,25 @@ function DisclaimerSection({ title, body, delay }: { title: string; body: string
         className="p-4 rounded-xl shadow-sm bg-gray-100/60 text-[#003241] mx-5"
       >
         <h2 className="text-lg font-semibold mb-2">{title}</h2>
-        <p className="whitespace-pre-line text-md ">{body}</p>
+        <p className="whitespace-pre-line text-md">{body}</p>
       </motion.div>
     </div>
   );
 }
 
 export default function DisclaimerPage() {
+  const [sections, setSections] = useState<{ title: string; body: string }[]>([]);
   const sectionRef = useRef(null);
+
+  useEffect(() => {
+    getDisclaimerSections().then(setSections).catch(console.error);
+  }, []);
 
   return (
     <section className="max-w-4xl mx-auto px-4 py-16 space-y-10 mt-10 text-justify" ref={sectionRef}>
       <h1 className="text-3xl font-bold text-[#003241] mx-5">Disclaimer</h1>
 
-      {disclaimerContent.map((section, index) => (
+      {sections.map((section, index) => (
         <DisclaimerSection
           key={index}
           title={section.title}

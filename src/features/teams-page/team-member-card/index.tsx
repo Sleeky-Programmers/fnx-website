@@ -22,11 +22,10 @@ export function TeamMemberCard({
   const [expanded, setExpanded] = useState(false);
   const maxLength = 200;
   
-  // Clean the bio text by removing extra whitespace and line breaks
   const cleanBio = member.bio
-    .replace(/\s+/g, ' ') // Replace multiple whitespace/newlines with single space
-    .replace(/\n/g, ' ')  // Replace any remaining newlines with space
-    .trim();              // Remove leading/trailing whitespace
+    .replace(/\s+/g, ' ') 
+    .replace(/\n/g, ' ') 
+    .trim();              
   
   const showReadMore = cleanBio.length > maxLength;
   const bioText = expanded
