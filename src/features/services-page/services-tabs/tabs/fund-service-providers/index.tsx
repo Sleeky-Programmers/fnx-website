@@ -7,7 +7,8 @@ import {
   FileText, Scale, PieChart, Building2, ScrollText, ShieldAlert,
   Search, Building, Mail, Shield, Boxes, Users,
   FileSpreadsheet, FileCog, AlertTriangle, BadgeDollarSign,
-  AlertCircle, Globe, Rocket, Settings
+  AlertCircle, Globe, Rocket, Settings,
+  LucideIcon
 } from "lucide-react";
 import { getServiceSection } from "@/lib/api";
 
@@ -26,7 +27,7 @@ interface ServiceData {
   services?: { label: string }[];
 }
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   "Financial Statements Reporting": FileText,
   "Legal Counsel": Scale,
   "Portfolio Management": PieChart,

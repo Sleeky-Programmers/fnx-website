@@ -1,10 +1,10 @@
 "use client";
 
 import { ValueCard } from "@/components/ui/value-card";
+import { Value } from "@/lib/type";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-import type { Value } from "@/lib/api";
 
 interface ValuesCardsProps {
   values: Value[];

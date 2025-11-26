@@ -1,4 +1,4 @@
-import type { TeamMember } from '../features/teams-page/team-member-card';
+import { TeamMember } from '@/features/teams-page/team-member-card';
 import { HomePageContent, Value, ServiceSection, FundSubTab, WhatWeDoContentType, ContactPageData, TeamData } from './type';
 
 
@@ -9,7 +9,7 @@ export async function getTeamData(): Promise<TeamData> {
 
   const data = await res.json();
 
-  data.members = data.members.map((m: any) => {
+  data.members = data.members.map((m: TeamMember) => {
     const photo = m.photo ?? '';
     if (photo && !/^https?:\/\//i.test(photo) && !photo.startsWith('/')) {
       m.photo = `${apiBase}/uploads/team/${photo}`;
@@ -69,7 +69,7 @@ export async function getFundStructure(section = 'typical-fund-structure'): Prom
 
   const data = await res.json();
 
-  return data.map((item: any) => {
+  return data.map((item: FundSubTab) => {
     const image = item.image ?? '';
     if (image && !/^https?:\/\//i.test(image) && !image.startsWith('/')) {
       // ✅ Construct correct absolute URL

@@ -5,10 +5,12 @@ import { motion } from "framer-motion";
 import { FaPhoneAlt, FaEnvelope, FaGlobe } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { getContactPage } from "@/lib/api";
+import { ContactPageData } from "@/lib/type";
 
 export default function ContactPage() {
   const [status, setStatus] = useState("idle");
-  const [pageData, setPageData] = useState<any>(null);
+
+  const [pageData, setPageData] = useState<ContactPageData | null>(null);
 
   useEffect(() => {
     (async () => {
