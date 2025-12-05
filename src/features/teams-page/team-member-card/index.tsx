@@ -69,7 +69,7 @@ export function TeamMemberCard({
             src={member.photo}
             alt={member.name}
             fill
-            className="object-cover"
+            className="object-contain"
           />
         </div>
       </motion.div>
