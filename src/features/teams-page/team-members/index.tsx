@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 import { TeamMemberCard } from "../team-member-card";
 import { teamMembers } from "@/data/team-members";
 
@@ -10,7 +10,7 @@ export function TeamMembers() {
       <motion.div
         initial={{ y: -60, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: easeOut }}
         viewport={{ once: false, amount: 0.3 }}
         className="text-center mb-16 px-4 sm:px-6"
       >
@@ -27,7 +27,7 @@ export function TeamMembers() {
         <motion.div
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.5, ease: easeOut, delay: 0.2 }}
           viewport={{ once: false }}
           className="h-1 w-20 sm:w-24 md:w-32 bg-[#9F836D] mx-auto mb-4 origin-left"
         />

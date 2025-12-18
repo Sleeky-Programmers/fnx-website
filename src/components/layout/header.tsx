@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform, useInView, easeOut } from "framer-motion";
 import { MenuModal } from "./menu-modal";
 
 function AnimatedMenuIcon({ dark = false }) {
@@ -51,7 +51,7 @@ export function Header() {
             <motion.div
               initial={{ y: -100, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.8, ease: easeOut }}
             >
               <Link href="/" className="flex items-center">
                 <Image
@@ -69,7 +69,7 @@ export function Header() {
             <motion.button
               initial={{ y: -100, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : {}}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+              transition={{ duration: 0.8, ease: easeOut, delay: 0.1 }}
               onClick={() => setIsOpen(true)}
               className={`p-2 z-50 flex items-center gap-2 md:gap-3 group hover:text-md transition-colors ${
                 isLegalPage ? "text-black hover:text-gray-700" : "text-white hover:text-gray-200"

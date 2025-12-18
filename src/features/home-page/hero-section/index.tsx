@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { easeOut, motion, useInView } from "framer-motion";
 import { GetStarted } from "@/components/buttons/get-started-btn";
 import { useRef } from "react";
 
@@ -17,7 +17,7 @@ export function HeroSection() {
       <motion.div
         initial={{ scale: 1.2, opacity: 0 }}
         animate={isInView ? { scale: 1, opacity: 1 } : {}}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+        transition={{ duration: 0.9, ease: easeOut }}
         className="absolute w-full h-[100dvh] z-10 top-0 left-0"
       >
         <Image
@@ -38,7 +38,7 @@ export function HeroSection() {
         <motion.p
           initial={{ y: -100, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : {}}
-          transition={{ duration: 0.9, ease: "easeOut" }}
+          transition={{ duration: 0.9, ease: easeOut }}
           className="font-bold text-center text-2xl md:text-2xl lg:text-3xl text-[#D5D5D5]"
         >
           AIFMD and Management Company Services
@@ -47,7 +47,7 @@ export function HeroSection() {
         <motion.div
           initial={{ scale: 1.5, opacity: 0 }}
           animate={isInView ? { scale: 1, opacity: 1 } : {}}
-          transition={{ duration: 0.9, ease: "easeOut" }}
+          transition={{ duration: 0.9, ease: easeOut }}
         >
           <GetStarted />
         </motion.div>

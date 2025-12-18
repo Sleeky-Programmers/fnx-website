@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 
 export function ServicesHero() {
   return (
@@ -10,7 +10,7 @@ export function ServicesHero() {
       <motion.div
         initial={{ scale: 1.2, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.9, ease: 'easeOut' }}
+        transition={{ duration: 0.9, ease: easeOut }}
         viewport={{ once: false, amount: 0.5 }}
         className="absolute w-full h-[100dvh] z-10 top-0 left-0"
       >
@@ -32,7 +32,7 @@ export function ServicesHero() {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: easeOut }}
           viewport={{ once: false, amount: 0.5 }}
           className="max-w-3xl mx-auto"
         >

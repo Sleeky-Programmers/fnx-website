@@ -1,7 +1,7 @@
 "use client";
 
 import { disclaimerContent } from "@/data/legal/disclaimer";
-import { motion, useInView } from "framer-motion";
+import { easeOut, motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 function DisclaimerSection({ title, body, delay }: { title: string; body: string; delay: number }) {
@@ -13,7 +13,7 @@ function DisclaimerSection({ title, body, delay }: { title: string; body: string
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay }}
+        transition={{ duration: 0.6, ease: easeOut, delay }}
         className="p-4 rounded-xl shadow-sm bg-gray-100/60 text-[#003241] mx-5"
       >
         <h2 className="text-lg font-semibold mb-2">{title}</h2>

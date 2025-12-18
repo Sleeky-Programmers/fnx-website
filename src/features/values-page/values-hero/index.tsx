@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 import Image from "next/image";
 
 export function ValuesHero() {
@@ -25,7 +25,7 @@ export function ValuesHero() {
   initial={{ y: 50, opacity: 0 }}
   whileInView={{ y: 0, opacity: 1 }}
   viewport={{ once: false, amount: 0.3 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
+  transition={{ duration: 0.8, ease: easeOut }}
   className="max-w-3xl mx-auto"
 >
   <h1 className="text-2xl md:text-2xl lg:text-3xl font-bold text-white mb-4">

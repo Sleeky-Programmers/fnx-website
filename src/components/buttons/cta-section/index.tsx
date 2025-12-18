@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { easeOut, motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ContactUsButton } from "../contact-us-btn";
 
@@ -16,7 +16,7 @@ export function GetStartedSection() {
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: isInView ? 0 : -100, opacity: isInView ? 1 : 0 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+        transition={{ duration: 0.9, ease: easeOut }}
         className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-5"
       >
         <p className="font-bold text-lg md:text-2xl text-center md:text-left">

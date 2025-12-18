@@ -1,5 +1,5 @@
 "use client";
-import { motion, useInView } from "framer-motion";
+import { easeOut, motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -19,7 +19,7 @@ export function LogoAnimationSection() {
           transition={{
             delay: 0.9,
             duration: 0.8,
-            ease: "easeOut",
+            ease: easeOut
           }}
           className="absolute inset-0 flex items-center justify-center z-20"
         >
@@ -40,7 +40,7 @@ export function LogoAnimationSection() {
           transition={{
             delay: 0.9,
             duration: 1.2,
-            ease: "easeOut",
+            ease: easeOut,
           }}
           className="relative w-full aspect-square max-w-4xl mx-auto"
         >

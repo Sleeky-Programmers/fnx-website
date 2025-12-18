@@ -3,7 +3,7 @@
 import { PiHandshakeLight } from "react-icons/pi";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { CiMedal } from "react-icons/ci";
-import { motion, useInView } from "framer-motion";
+import { easeOut, motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { IconType } from "react-icons"; 
 
@@ -46,7 +46,7 @@ function FeatureCard({ icon: Icon, title, description, index }: FeatureCardProps
       ref={ref}
       initial={{ opacity: 0, x: fromX }}
       animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: fromX }}
-      transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+      transition={{ duration: 0.6, delay: index * 0.2, ease: easeOut }}
       className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 flex flex-col items-start"
     >
       <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-[#9f836d]/20 text-[#9F836D]">

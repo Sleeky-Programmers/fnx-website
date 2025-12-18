@@ -3,7 +3,7 @@
 "use client";
 
 import TabHeader from "@/components/service/tab-header";
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 import {
   FileText, Scale, PieChart, Building2, ScrollText, ShieldAlert,
   Search, Building, Mail, Shield, Boxes, Users,
@@ -90,7 +90,7 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: index * 0.2, ease: easeOut }}
               viewport={{ once: false, amount: 0.3 }}
               className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 md:p-8 rounded-xl"
             >
@@ -112,7 +112,7 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
                     key={index}
                     initial={{ x: index % 2 === 0 ? -30 : 30, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.03 }}
+                    transition={{ duration: 0.4, ease: easeOut, delay: index * 0.03 }}
                     viewport={{ once: false, amount: 0.2 }}
                     className="flex items-center gap-3"
                   >
@@ -131,7 +131,7 @@ export function FundServiceProvidersContent({ direction }: TabContentProps) {
                     key={index}
                     initial={{ x: index % 2 === 0 ? 30 : -30, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.03 }}
+                    transition={{ duration: 0.4, ease: easeOut, delay: index * 0.03 }}
                     viewport={{ once: false, amount: 0.2 }}
                     className="flex items-center gap-3"
                   >

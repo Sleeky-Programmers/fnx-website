@@ -1,7 +1,7 @@
 "use client";
 
 import { ValueCard } from "@/components/ui/value-card";
-import { motion, useInView } from "framer-motion";
+import { easeOut, motion, useInView } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
@@ -71,9 +71,9 @@ export function ValuesCards() {
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+            transition={{ duration: 0.8, ease: easeOut, delay: 0.8 }}
             viewport={{ once: false }}
-            className="absolute -translate-x-1/2 -translate-y-1/2 w-52 h-52 bg-white rounded-full flex items-center justify-center z-10 hidden md:flex"
+            className="absolute -translate-x-1/2 -translate-y-1/2 w-52 h-52 bg-white rounded-full flex items-center justify-center z-10 md:flex"
           >
             <div className="relative w-32 h-32">
               <Image
@@ -95,7 +95,7 @@ export function ValuesCards() {
                 viewport={{ once: false, amount: 0.3 }}
                 transition={{
                   duration: 0.7,
-                  ease: "easeOut",
+                  ease: easeOut,
                   delay: index * 0.25,
                 }}
                 className="w-full max-w-sm h-96 rounded-2xl text-center overflow-hidden flex mx-auto"

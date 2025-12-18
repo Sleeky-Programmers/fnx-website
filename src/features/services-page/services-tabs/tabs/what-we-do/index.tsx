@@ -3,7 +3,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 import TabHeader from "@/components/service/tab-header";
 
 interface TabContentProps {
@@ -27,7 +27,7 @@ export function WhatWeDoContent({ direction }: TabContentProps) {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: easeOut }}
           viewport={{ once: false, amount: 0.3 }}
           className="relative w-full max-w-4xl mx-auto"
         >

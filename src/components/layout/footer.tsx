@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { easeOut, motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FaLinkedin } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
@@ -25,6 +25,7 @@ export function Footer() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { margin: "-100px" });
   const pathname = usePathname();
+  const currentYear = new Date().getFullYear();
 
   const highlightColor = "text-[#9F836D]";
   const defaultColor = "text-gray-400";
@@ -38,7 +39,7 @@ export function Footer() {
             className="lg:col-span-7"
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
+            transition={{ duration: 0.9, ease: easeOut }}
           >
             <Link href="/" className="inline-block mb-6">
               <Image
@@ -87,7 +88,7 @@ export function Footer() {
               <motion.div
                 initial={{ y: 100, opacity: 0 }}
                 animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
-                transition={{ duration: 0.9, ease: "easeOut" }}
+                transition={{ duration: 0.9, ease: easeOut }}
               >
                 <h3 className="text-md font-semibold text-gray-300 mb-4">Company</h3>
                 <ul className="space-y-3">
@@ -109,7 +110,7 @@ export function Footer() {
               <motion.div 
                 initial={{ y: 100, opacity: 0 }}
                 animate={isInView ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
-                transition={{ duration: 0.9, ease: "easeOut", delay: 0.2 }}
+                transition={{ duration: 0.9, ease: easeOut, delay: 0.2 }}
               >
                 <h3 className="text-md font-semibold text-gray-300 mb-4">Legal</h3>
                 <ul className="space-y-3">
@@ -133,7 +134,7 @@ export function Footer() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             >
-              <p className="text-sm text-gray-400">© All Rights Reserved.</p>
+              <p className="text-sm text-gray-400">© {currentYear} West53 Capital Limited. All rights reserved.</p>
             </motion.div>
           </div>
         </div>

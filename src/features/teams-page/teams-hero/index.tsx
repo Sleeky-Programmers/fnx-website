@@ -1,14 +1,14 @@
 "use client";
 
 import Image from 'next/image';
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 
 const overlayVariant = {
   hidden: { scale: 1.1, opacity: 0 },
   visible: {
     scale: 1,
     opacity: 1,
-    transition: { duration: 1.2, ease: "easeOut" }
+    transition: { duration: 1.2, ease: easeOut }
   }
 };
 
@@ -17,7 +17,7 @@ const contentVariant = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: "easeOut" }
+    transition: { duration: 0.8, ease: easeOut }
   }
 };
 
